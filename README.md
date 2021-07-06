@@ -7,11 +7,9 @@
 | nick_name                | string        | null: false                    |
 | user_name                | string        | null: false                    |
 | encrypted_password       | string        | null: false                    |
-| profile                  | text          |                                |
-| age                      | integer       |                                |
-| gender_id                | integer       |                                |
 
 ### Association
+- has_one :profile
 - has_many :recipes
 - has_many :user_likes
 - has_many :favorites, through: :user_likes, source: :recipe
@@ -20,8 +18,20 @@
 
 #### その他
 Active_storageで画像のの追加<br>
-Profileテーブル作ったほうがいいかも？
 *****
+
+## Profileテーブル
+| Column                   | Type          | Option                         |
+|--------------------------|---------------|--------------------------------|
+| content                  | text          | null: false                    |
+| age                      | integer       | null: false                    |
+| gender_id                | integer       | null: false                    |
+| user                     | references    | null: false, foreign_key: true |
+
+### Association
+- belongs_to :user
+*****
+
 ## Recipeテーブル
 
 | Column                   | Type          | Option                         |
