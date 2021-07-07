@@ -6,7 +6,7 @@ header
     ul.header-buttons
       - if user_signed_in?
         li.header-btn 
-          = link_to current_user.nick_name, "#"
+          = link_to "#{current_user.nick_name}さん", "#"
         li.header-btn 
           = link_to "お気に入り", "#"
         li.header-btn 

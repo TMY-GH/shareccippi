@@ -10,7 +10,10 @@ class User < ApplicationRecord
 
 
 
-
+# Remember_meを常にTrue
+def remember_me
+  true
+end
 #usernameを利用してログインするようにオーバーライド
 def self.find_first_by_auth_conditions(warden_conditions)
   conditions = warden_conditions.dup

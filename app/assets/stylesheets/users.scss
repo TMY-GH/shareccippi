@@ -64,4 +64,24 @@
     font-weight: 900;
     border-bottom: 1px solid rgba(0, 0, 0, 0.8);
   }
+
+  // ログイン画面
+  .login-submit {
+    height: 30px;
+    width: 200px;
+    background-color: orange;
+    border-style: none;
+    border-radius: 15px;
+    font-size: 16px;
+    font-weight: 900;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+  }
+
+  .signup-link {
+    display: inline-block;
+    margin: 30px 40px 45px;
+    padding: 0 10px 2px;
+    font-weight: 900;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+  }
 }
