@@ -2,10 +2,12 @@ $main_color: #d18030;
 // --- header ---
 header {
   background-color: $main_color;
+  color: rgb(253, 240, 198);
   height: 80px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 // header-left
 .header-logo {
@@ -22,7 +24,7 @@ header {
 .header-btn {
   padding: 10px 20px 0;
   font-size: 18px;
-  border-left: 1px solid white;
+  border-left: 1px solid rgb(0, 0, 0);
 }
 
 // --- footer ---
@@ -32,6 +34,8 @@ footer {
   display: flex;
   justify-content: space-between;
   padding: 20px;
+  color: rgb(253, 240, 198);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
 }
 .footer-left {
   display: flex;

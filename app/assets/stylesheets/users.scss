@@ -1,0 +1,67 @@
+.user-wrapper {
+  background-color: rgb(253, 246, 223);
+
+
+  .user-container {
+    width: 38%;
+    margin: 0 auto;
+    font-family: 'Noto Sans JP', serif;
+    color: rgb(70, 61, 48);
+  }
+
+  .header-name {
+    margin: 0px 0px 30px;
+    padding: 30px 20px 10px;
+    width: 50%;
+    font-size: 30px;
+    border-bottom: 1px solid red;
+  }
+
+  form {
+    width: 80%;
+  }
+
+  .field {
+    margin: 40px 20px;
+  }
+
+  label {
+    font-size: 20px;
+    font-weight: 100;
+    display: inline-block;
+    margin: 0 5px 10px;
+    
+  }
+
+  input {
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    width: 100%;
+    height: 15px;
+    padding: 10px;
+  }
+
+  .actions {
+    text-align: center;
+  }
+
+  .submit {
+    height: 30px;
+    width: 200px;
+    background-color: orange;
+    border-style: none;
+    border-radius: 15px;
+    font-size: 16px;
+    font-weight: 900;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+  }
+
+  .login-link {
+    display: inline-block;
+    margin: 30px 40px 45px;
+    padding: 0 10px 2px;
+    font-weight: 900;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+  }
+}
