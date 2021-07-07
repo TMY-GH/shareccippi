@@ -8,8 +8,7 @@ class User < ApplicationRecord
     validates :user_name, uniqueness: true
   end
 
-  validates :user_name, format: { with: /\A[a-zA-Z0-9]+\z/, message: "が正しくありません"}
-
+  validates :user_name, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-zA-Z\d]{4,16}\z/i, message: "が正しくありません"}
 
 
 # Remember_meを常にTrue

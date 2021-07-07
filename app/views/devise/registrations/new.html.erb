@@ -15,12 +15,12 @@
 
       <div class="field">
         <%= f.label :user_name, "ユーザーID" %> ※ログインで必要です(非公開)<br />
-        <%= f.text_field :user_name, autofocus: true, placeholder: "アルファベットか数字" %>
+        <%= f.text_field :user_name, autofocus: true, placeholder: "半角英数字の組み合わせ:４〜１６文字" %>
       </div>
 
       <div class="field">
         <%= f.label :password, "パスワード" %>※ログインで必要です(非公開)<br />
-        <%= f.password_field :password, autocomplete: "new-password", placeholder: "６文字以上のアルファベットと数字" %>
+        <%= f.password_field :password, autocomplete: "new-password", placeholder: "６文字以上の半角英数字" %>
       </div>
 
       <div class="field">
