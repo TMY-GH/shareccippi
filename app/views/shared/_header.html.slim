@@ -1,0 +1,20 @@
+header
+  .header-left
+    .header-logo
+      = link_to "ShaRecipe", root_path
+  .header-right
+    ul.header-buttons
+      - if user_signed_in?
+        li.header-btn 
+          = link_to "#{current_user.nick_name}さん", "#"
+        li.header-btn 
+          = link_to "お気に入り", "#"
+        li.header-btn 
+          = link_to "グループ", "#"
+        li.header-btn 
+          = link_to "ログアウト", destroy_user_session_path, method: :delete
+      - else
+        li.header-btn 
+          = link_to "ログイン", new_user_session_path
+        li.header-btn 
+          = link_to "アカウント作成", new_user_registration_path

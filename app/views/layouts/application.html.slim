@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    title
+      | Sharecipi
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    // googleフォント Noto Sans JP
+    link rel="preconnect" href="https://fonts.googleapis.com"
+    link rel="preconnect" href="https://fonts.gstatic.com"
+    link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet"
+    link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@500&display=swap" rel="stylesheet"
+    // Font Awesome
+    <script src="https://kit.fontawesome.com/5df36845f1.js" crossorigin="anonymous"></script>
+  body
+    = render partial: "shared/header"
+    / p.notice
+    /   = notice
+    / p.alert
+    /   = alert
+    = yield
+    = render partial: "shared/footer"
