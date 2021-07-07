@@ -5,8 +5,10 @@ class User < ApplicationRecord
 # --- バリデーション ---
   with_options presence: true do
     validates :nick_name
-    validates :user_name, format: { with: /\A[a-zA-Z0-9]+\z/ }, uniqueness: true
+    validates :user_name, uniqueness: true
   end
+
+  validates :user_name, format: { with: /\A[a-zA-Z0-9]+\z/, message: "が正しくありません"}
 
 
 

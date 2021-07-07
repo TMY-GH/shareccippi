@@ -1,0 +1,6 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        nick_name: ユーザー名
+        user_name: ユーザーID

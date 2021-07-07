@@ -59,3 +59,4 @@ gem 'slim'
 gem 'html2slim'
 
 gem 'devise'
+gem 'rails-i18n'
