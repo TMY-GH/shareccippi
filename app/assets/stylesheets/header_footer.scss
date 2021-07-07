@@ -1,0 +1,54 @@
+$main_color: #d18030;
+// --- header ---
+header {
+  background-color: $main_color;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+// header-left
+.header-logo {
+  font-family: 'Kiwi Maru', serif;
+  font-size: 40px;
+  margin: 0 0 6px 20px;
+}
+// header-right
+.header-buttons {
+  font-family: 'Noto Sans JP', serif;
+  height: 40px;
+  display: flex;
+}
+.header-btn {
+  padding: 10px 20px 0;
+  font-size: 18px;
+  border-left: 1px solid white;
+}
+
+// --- footer ---
+footer {
+  background-color: $main_color;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  margin-top: 20px;
+
+  .far, .fas{
+    margin-right: 5px;
+  }
+  .donate {
+    margin-top: 20px;
+  }
+}
+
+.footer-logo{
+  font-family: 'Kiwi Maru', serif;
+  font-size: 50px;
+  margin-top: 40px;
+}
