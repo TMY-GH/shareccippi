@@ -1,6 +1,6 @@
 class RecipeForm
   include ActiveModel::Model
-  attr_accessor :recipe_name, :recipe_image, :minute, :serving, :publish, :price, :user,
+  attr_accessor :recipe_name, :recipe_image, :minute, :serving, :publish, :price, :user_id,
                 :ingredient_id, :amount, :recipe_id,
                 :content, :caution
 
@@ -12,6 +12,7 @@ class RecipeForm
     validates :serving
     validates :publish
     validates :price
+    validates :user_id
     validates :ingredient_id
     validates :amount
     validates :content
@@ -33,7 +34,7 @@ class RecipeForm
 
 # Method
   def save
-    recipe = Recipe.create(name: recipe_name, minute_id: minute, serving_id: serving, publish_id: publish, price: price, user_id: current_user.id)
+    recipe = Recipe.create(name: recipe_name, minute_id: minute, serving_id: serving, publish_id: publish, price: price, user_id: user_id)
     RecipeIngredient.create(ingredient_id: ingredient_id, amount: amount, recipe_id: recipe.id)
     Cooking.create(content: content, recipe_id: recipe.id)
   end
