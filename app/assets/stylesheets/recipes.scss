@@ -169,6 +169,10 @@ main {
 
   &-ingredient {
 
+    .ingredient {
+      margin-bottom: 20px;
+    }
+
     input {
       display: inline-block;
       margin-left: 50px;
@@ -184,6 +188,13 @@ main {
       width: 300px;
       font-size: 18px;
     }
+
+    .fa-plus-square {
+      margin-left: 30px;
+      font-size: 30px;
+      color: red;
+    }
+
   }
 
   &-cooking {
