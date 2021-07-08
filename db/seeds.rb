@@ -1,3 +1,4 @@
+Ingredient.create(name: "---", genre: "0")
 Ingredient.create(name: "牛肉", genre: "1")
 Ingredient.create(name: "豚肉", genre: "1")
 Ingredient.create(name: "鶏肉", genre: "1")

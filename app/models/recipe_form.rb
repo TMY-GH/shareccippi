@@ -33,7 +33,7 @@ class RecipeForm
 
 # Method
   def save
-    recipe = Recipe.create(name: recipe_name, time_id: minute, serving_id: serving, publish_id: publish, price: price, user_id: current_user.id)
+    recipe = Recipe.create(name: recipe_name, minute_id: minute, serving_id: serving, publish_id: publish, price: price, user_id: current_user.id)
     RecipeIngredient.create(ingredient_id: ingredient_id, amount: amount, recipe_id: recipe.id)
     Cooking.create(content: content, recipe_id: recipe.id)
   end

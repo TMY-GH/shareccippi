@@ -37,7 +37,7 @@ Active_storageで画像のの追加<br>
 | Column                   | Type          | Option                         |
 |--------------------------|---------------|--------------------------------|
 | name                     | string        | null: false                    |
-| time_id                  | integer       | null: false                    |
+| minute_id                | integer       | null: false                    |
 | serving_id               | integer       | null: false                    |
 | publish_id               | integer       | null: false                    |
 | price                    | integer       | null: false                    |

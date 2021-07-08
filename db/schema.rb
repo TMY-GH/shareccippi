@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2021_07_08_030130) do
 
   create_table "ingredients", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.string "genre", null: false
+    t.string "genre_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 2021_07_08_030130) do
 
   create_table "recipes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.integer "time_id", null: false
+    t.integer "minute_id", null: false
     t.integer "serving_id", null: false
     t.integer "publish_id", null: false
     t.integer "price", null: false
