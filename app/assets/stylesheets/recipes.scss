@@ -197,6 +197,15 @@ main {
       font-size: 16px;
     }
   }
+
+  &-price {
+    padding-bottom: 50px;
+
+    input {
+      margin-left: 20px;
+      text-align: right;
+    }
+  }
 }
 
 .submit-wrapper {
