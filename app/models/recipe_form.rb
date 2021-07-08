@@ -18,7 +18,7 @@ class RecipeForm
   end
   # ActiveHashは0を選べない
   with_options numericality: { other_than: 0 } do
-    validates :time
+    validates :minute
     validates :serving
     validates :publish
     validates :ingredient_id

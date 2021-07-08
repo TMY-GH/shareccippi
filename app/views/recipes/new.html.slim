@@ -29,7 +29,7 @@
       .field.recipe-ingredient
         label 材料
         br
-        = f.collection_select :ingredient_id, Ingredient.all.order("genre ASC"), :id, :name, {}
+        = f.collection_select :ingredient_id, Ingredient.all.order("genre_id ASC"), :id, :name, {}
         = f.text_field :amount
         p g
         <i class="fas fa-plus-square" style="cursor:pointer;"></i>
