@@ -62,6 +62,7 @@ Active_storageで画像のの追加<br>
 | Column                   | Type          | Option                         |
 |--------------------------|---------------|--------------------------------|
 | name                     | string        | null: false                    |
+| genre                    | string        | null: false                    |
 
 ### Association
 - has_many :recipe_ingredients
