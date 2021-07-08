@@ -1,6 +1,6 @@
 class RecipeForm
   include ActiveModel::Model
-  attr_accessor :recipe_name, :recipe_image, :time, :serving, :publish, :price, :user,
+  attr_accessor :recipe_name, :recipe_image, :minute, :serving, :publish, :price, :user,
                 :ingredient_id, :amount, :recipe_id,
                 :content, :caution
 
@@ -8,7 +8,7 @@ class RecipeForm
   with_options presence: true do
     validates :recipe_name
     validates :recipe_image
-    validates :time
+    validates :minute
     validates :serving
     validates :publish
     validates :price
@@ -23,12 +23,17 @@ class RecipeForm
     validates :publish
     validates :ingredient_id
   end
-  validates :price, format: { with: /\A[0-9０-９]+\z/ }
-
+  # 値段は半角か全角の数字のみ可能
+  with_options format: { with: /\A[0-9０-９]+\z/ } do
+    validates :price
+    validates :amount
+  end
+  # 食材で線になっている場所
+  validates :ingredient_id, numericality: { other_than: 5, other_than: 22, other_than: 31, other_than: 536 }
 
 # Method
   def save
-    recipe = Recipe.create(name: recipe_name, time_id: time, serving_id: serving, publish_id: publish, price: price, user_id: current_user.id)
+    recipe = Recipe.create(name: recipe_name, time_id: minute, serving_id: serving, publish_id: publish, price: price, user_id: current_user.id)
     RecipeIngredient.create(ingredient_id: ingredient_id, amount: amount, recipe_id: recipe.id)
     Cooking.create(content: content, recipe_id: recipe.id)
   end

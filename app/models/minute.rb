@@ -1,4 +1,4 @@
-class Time < ActiveHash::Base
+class Minute < ActiveHash::Base
   include ActiveHash::Associations
     has_many :recipes
   
