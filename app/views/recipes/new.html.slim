@@ -1,0 +1,57 @@
+.recipe-wrapper
+  .recipe-container
+    .heading-name
+      h1 レシピの作成
+
+    form
+
+      .recipe-heading
+        .field.recipe-name
+          label 料理名
+          br
+          input type="text" placeholder="例）カレーライス"
+
+        .field.recipe-image
+          label style="cursor:pointer;" 料理の写真を選択
+            <i class="fas fa-camera" style="cursor:pointer;"></i>
+            <input type="file" style="display:none;">
+
+      .field.recipe-time
+        label 調理時間
+        select.minutes
+          option 5
+          option 10
+        p.minute 分
+
+      .field.recipe-serving
+        label 　　人数
+        select
+          option 1
+          option 2
+          option 3
+        p.people 人
+
+      .field.recipe-ingredient
+        label 材料
+        br
+        select
+          option 肉
+          option 野菜
+          option 調味料
+        input type="text"
+        p g
+        <i class="fas fa-plus-square" style="cursor:pointer;"></i>
+
+      .field.recipe-cooking
+        label 調理方法
+        br
+        textarea rows="3"
+        <i class="fas fa-plus-square" style="cursor:pointer;"></i>
+
+      .field.recipe-public
+        label 公開設定
+        select
+          option 公開
+          option 非公開
+    .submit-wrapper  
+      input type="submit" value="レシピを作る" class="submit"

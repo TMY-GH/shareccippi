@@ -1,6 +1,6 @@
 <div class="user-wrapper">
   <div class="user-container">
-    <div class="header-name">
+    <div class="heading-name">
       <h2>ログイン</h2>
     </div>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -17,14 +17,6 @@
         <%= f.label :password, "パスワード" %><br />
         <%= f.password_field :password, autocomplete: "new-password", placeholder: "６文字以上のアルファベットと数字" %>
       </div>
-
-
-      <%# <% if devise_mapping.rememberable?
-        <div class="field">
-          <%= f.check_box :remember_me
-          <%= f.label :remember_me, "ユーザーIDを保存する"
-        </div>
-      <% end %>
 
       <div class="actions">
         <%= f.submit "ログイン", class: "login-submit" %>

@@ -37,8 +37,8 @@ Active_storageで画像のの追加<br>
 | Column                   | Type          | Option                         |
 |--------------------------|---------------|--------------------------------|
 | name                     | string        | null: false                    |
-| time                     | integer       | null: false                    |
-| serving                  | integer       | null: false                    |
+| time_id                  | integer       | null: false                    |
+| serving_id               | integer       | null: false                    |
 | publish_id               | integer       | null: false                    |
 | price                    | integer       | null: false                    |
 | user                     | references    | null: false, foreign_key: true |
@@ -61,7 +61,7 @@ Active_storageで画像のの追加<br>
 | Column                   | Type          | Option                         |
 |--------------------------|---------------|--------------------------------|
 | name_id                  | integer       | null: false                    |
-| Amount                   | string        | null: false                    |
+| amount                   | string        | null: false                    |
 | recipe_id                | references    | null: false, foreign_key: true |
 
 ### Association
