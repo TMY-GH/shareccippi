@@ -44,7 +44,7 @@
         label 調理方法
         br
         / textarea rows="3"
-        = f.text_area :content, rows: "3"
+        = f.text_area :content, name: "recipe_form[contents][]", rows: "3"
         <i class="fas fa-plus-square" style="cursor:pointer;"></i>
 
       .field.recipe-public

@@ -5,7 +5,7 @@ class RecipeForm
 
   attr_accessor :recipe_name, :recipe_image, :minute, :serving, :publish, :price, :user_id,
                 :ingredient_ids, :amounts, :recipe_id,
-                :content, :caution,
+                :contents, :caution,
                 :ingredient_id, :amount
 
 # Validation
@@ -18,7 +18,7 @@ class RecipeForm
     validates :user_id
     validates :ingredient_ids
     validates :amounts
-    validates :content
+    validates :contents
   end
   # ActiveHashは0を選べない
   with_options numericality: { other_than: 0, message: "は---以外を選択してください" } do
@@ -28,14 +28,17 @@ class RecipeForm
   end
   # 値段は半角か全角の数字のみ可能
   with_options format: { with: /\A[0-9０-９]+\z/ } do
-    validates :price, unless: :blank?
+    validates :price, if: :blank?
   end
 
-  # 材料のバリデーション
+  # 材料(配列)のバリデーション 「---」を選択できない
   validates :ingredient_ids, ingredients: true
 
-  # 量のバリデーション
+  # 量(配列)のバリデーション
   validates :amounts, amount: true
+
+  # 調理方法(配列)のバリデーション
+  validates :contents, content: true
 
 # Method
   def save

@@ -9,7 +9,7 @@ ja:
       recipe_form:
         recipe_name: 料理名
         recipe_image: 料理の写真
-        content: 調理方法
+        contents: 調理方法
         minute: 調理時間
         serving: 人数
         publish: 公開設定
