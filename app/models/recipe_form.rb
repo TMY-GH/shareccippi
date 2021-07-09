@@ -8,25 +8,24 @@ class RecipeForm
 # Validation
   with_options presence: true do
     validates :recipe_name
-    validates :recipe_image
+    validates :recipe_image, presence: { message: "を選択してください" }
     validates :minute
     validates :serving
     validates :publish
-    validates :price
     validates :user_id
     validates :ingredient_ids
     validates :amounts
     validates :content
   end
   # ActiveHashは0を選べない
-  with_options numericality: { other_than: 0 } do
+  with_options numericality: { other_than: 0, message: "は---以外を選択してください" } do
     validates :minute
     validates :serving
     validates :publish
   end
   # 値段は半角か全角の数字のみ可能
   with_options format: { with: /\A[0-9０-９]+\z/ } do
-    validates :price
+    validates :price, unless: :blank?
   end
 
 # Method

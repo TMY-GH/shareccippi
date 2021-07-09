@@ -5,6 +5,8 @@
 
     = form_with model: @recipe, url: recipes_path, local: true do |f|
 
+      = render "shared/error_messages", model: f.object
+
       .recipe-heading
         .field.recipe-name
           label 料理名
@@ -51,7 +53,7 @@
 
       .field.recipe-price
         label 合計費用
-        = f.text_field :price
+        = f.text_field :price, placeholder: "任意"
         p 円
         
       .submit-wrapper  
