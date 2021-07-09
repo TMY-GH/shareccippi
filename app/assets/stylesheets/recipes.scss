@@ -27,6 +27,8 @@ main {
     box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);
 
     &-image{
+      width: 100%;
+      
       img {
         width: 100%;
         height: 250px;
@@ -53,20 +55,11 @@ main {
         display: block;
         margin: 10px 0 15px;
         padding-bottom: 5px;
-        // border-bottom: 1px solid rgba(209, 158, 90, 1);
       }
-    }
-    
-    &-serving {
-    }
-    &-time {
     }
 
     &-review {
 
-      // .fa-star {
-      //   color: rgb(255, 175, 2);
-      // }
       .fa-carrot {
         color:rgb(223, 131, 52);
         margin-right: 1px;
