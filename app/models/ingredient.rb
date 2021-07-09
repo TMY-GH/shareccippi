@@ -5,5 +5,4 @@ class Ingredient < ApplicationRecord
   # ActiveHash
   extend ActiveHash::Associations::ActiveRecordExtensions
     belongs_to :ingredient_genre
-
 end

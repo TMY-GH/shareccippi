@@ -9,7 +9,8 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = RecipeForm.new(recipe_params)
-    if @recipe.valid? && @recipe.validates_ingredient_id_and_amount?
+    # if @recipe.valid? && @recipe.validates_ingredient_id_and_amount?
+    if @recipe.valid?
       @recipe.price.to_i
       @recipe.save
       redirect_to root_path

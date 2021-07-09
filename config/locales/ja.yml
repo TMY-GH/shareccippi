@@ -14,3 +14,5 @@ ja:
         serving: 人数
         publish: 公開設定
         price: 費用
+        ingredient_ids: 材料
+        amounts: 材料の量

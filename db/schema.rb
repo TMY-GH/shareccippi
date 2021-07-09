@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 2021_07_08_030130) do
     t.integer "minute_id", null: false
     t.integer "serving_id", null: false
     t.integer "publish_id", null: false
-    t.integer "price", null: false
+    t.integer "price"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

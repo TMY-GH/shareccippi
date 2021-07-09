@@ -40,7 +40,7 @@ Active_storageで画像のの追加<br>
 | minute_id                | integer       | null: false                    |
 | serving_id               | integer       | null: false                    |
 | publish_id               | integer       | null: false                    |
-| price                    | integer       | null: false                    |
+| price                    | integer       |                                |
 | user                     | references    | null: false, foreign_key: true |
 
 ### Association
