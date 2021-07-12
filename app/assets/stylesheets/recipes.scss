@@ -207,17 +207,23 @@ main {
       width: 80%;
       background-color: rgb(255, 181, 71);
       border-radius: 10px;
-      margin: 0 30px;
+      margin: 0 10px 20px 30px;
       padding: 20px;
       font-size: 16px;
     }
 
+    // +ボタン
     .fa-plus-square {
       display: block;
       margin-left: 40px;
-      margin-top: 20px;
       font-size: 30px;
       color: red;
+      cursor: pointer;
+    }
+
+    // xボタン
+    .fa-times-circle {
+      color: rgba(26, 23, 23, 0.7);
       cursor: pointer;
     }
   }

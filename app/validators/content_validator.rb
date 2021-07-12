@@ -4,8 +4,8 @@ class ContentValidator < ActiveModel::EachValidator
     values.each do |value|
       if value.blank?
         record.errors[attribute] << (options[:message] || "（#{i}つ目）を入力してください")
-        i += 1
       end
+      i += 1
     end
   end
 end

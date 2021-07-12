@@ -58,7 +58,7 @@ const add_ingredient = () => {
         </select><span class="amount">分量</span><input name="recipe_form[amounts][]" type="text" id="recipe_form_amount">
       </div>`;
       const place = document.getElementById("ingredient-space");
-      place.insertAdjacentHTML('afterbegin', html);
+      place.insertAdjacentHTML('beforeend', html);
       // 入力欄を何個まで増やせるか
       max_input = 14;
       // 削除ボタンの作成＆追加
