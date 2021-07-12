@@ -12,6 +12,8 @@ header
         li.header-btn 
           = link_to "グループ", "#"
         li.header-btn 
+          = link_to "レシピ投稿", new_recipe_path
+        li.header-btn 
           = link_to "ログアウト", destroy_user_session_path, method: :delete
       - else
         li.header-btn 

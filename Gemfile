@@ -62,3 +62,8 @@ gem 'html2slim'
 
 gem 'devise'
 gem 'rails-i18n'
+
+gem 'mini_magick'
+gem 'image_processing', '~> 1.2'
+
+gem 'active_hash'

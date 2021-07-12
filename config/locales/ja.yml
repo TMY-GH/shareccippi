@@ -4,3 +4,15 @@ ja:
       user:
         nick_name: ユーザー名
         user_name: ユーザーID
+  activemodel:
+    attributes:
+      recipe_form:
+        recipe_name: 料理名
+        recipe_image: 料理の写真
+        contents: 調理方法
+        minute: 調理時間
+        serving: 人数
+        publish: 公開設定
+        price: 費用
+        ingredient_ids: 材料
+        amounts: 材料の量
