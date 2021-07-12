@@ -5,8 +5,7 @@ class RecipeForm
 
   attr_accessor :recipe_name, :recipe_image, :minute, :serving, :publish, :price, :user_id,
                 :ingredient_ids, :amounts, :recipe_id,
-                :contents, :caution,
-                :ingredient_id, :amount
+                :contents, :caution
 
 # Validation
   with_options presence: true do
