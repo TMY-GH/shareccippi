@@ -25,6 +25,7 @@ main {
     background-color: rgb(253, 221, 174);
     margin-bottom: 30px;
     box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);
+    font-size: 18px;
 
     &-image{
       width: 100%;
@@ -42,7 +43,7 @@ main {
       text-align: center;
       width: 90%;
       margin: 20px auto 10px;
-      font-size: 22px;
+      font-size: 24px;
       padding-bottom: 10px;
       border-bottom: 2px solid rgba(209, 158, 90, 0.5);
     }
@@ -56,6 +57,10 @@ main {
         margin: 10px 0 15px;
         padding-bottom: 5px;
       }
+    }
+
+    .serving-unit, .minute-unit {
+      display:inline-block;
     }
 
     &-review {

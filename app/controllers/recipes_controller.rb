@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
 
   def index
+    @recipes = Recipe.where(publish_id: "1")
   end
 
   def new
