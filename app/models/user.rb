@@ -10,7 +10,8 @@ class User < ApplicationRecord
 
   with_options presence: true do
     validates :nick_name
-    validates :user_name, uniqueness: true
+    # case_sensitiveはRSpecテスト用
+    validates :user_name, uniqueness: { case_sensitive: true }
   end
 
   validates :user_name, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-zA-Z\d]{4,16}\z/i, message: "が正しくありません"}

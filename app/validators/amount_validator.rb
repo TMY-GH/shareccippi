@@ -1,5 +1,8 @@
 class AmountValidator < ActiveModel::EachValidator
   def validate_each(record, attribute, values)
+    if values == nil || values == ""
+      return
+    end
     i = 1
     values.each do |value|
       unless /\A[0-9０-９]+\z/.match?(value)
