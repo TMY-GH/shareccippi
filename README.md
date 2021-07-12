@@ -37,16 +37,15 @@ Active_storageで画像のの追加<br>
 | Column                   | Type          | Option                         |
 |--------------------------|---------------|--------------------------------|
 | name                     | string        | null: false                    |
-| minute_id                | integer       | null: false                    |
-| serving_id               | integer       | null: false                    |
+| time                     | integer       | null: false                    |
+| serving                  | integer       | null: false                    |
 | publish_id               | integer       | null: false                    |
-| price                    | integer       |                                |
+| price                    | integer       | null: false                    |
 | user                     | references    | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
-- has_many :recipe-ingredients
-- has_many :ingredients, through: :recipe_ingredients
+- has_many :ingredients
 - has_many :cookings
 - has_many :user_likes
 - has_many :users, through: :user_likes
@@ -61,24 +60,12 @@ Active_storageで画像のの追加<br>
 
 | Column                   | Type          | Option                         |
 |--------------------------|---------------|--------------------------------|
-| name                     | string        | null: false                    |
-| genre                    | string        | null: false                    |
-
-### Association
-- has_many :recipe_ingredients
-- has_many :recipes, through: :recipe_ingredients
-
-## recipe_ingredientテーブル
-
-| Column                   | Type          | Option                         |
-|--------------------------|---------------|--------------------------------|
-| ingredient               | references    | null: false, foreign_key: true |
-| amount                   | string        | null: false                    |
+| name_id                  | integer       | null: false                    |
+| Amount                   | string        | null: false                    |
 | recipe_id                | references    | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :recipe
-- belongs_to :ingredient
 *****
 
 ## Cookingテーブル

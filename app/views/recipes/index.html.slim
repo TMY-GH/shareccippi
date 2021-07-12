@@ -8,4 +8,25 @@ main
           input type="submit" style="display: none;"
       // ここまで：検索機能時に書き換え
       .recipes
-        = render partial: "recipe", collection: @recipes
+        - 9.times do
+          .recipe
+            .recipe-image
+              img alt="料理画像" src="https://cdn.pixabay.com/photo/2014/09/22/14/49/breakfast-456351_1280.jpg"
+            .recipe-name
+              = "ハクナマタタ"
+            table
+              tbody
+                tr.recipe-serving
+                  td.key 人数：
+                  td.value
+                    = "4人前"
+                tr.recipe-time
+                  td.key 調理時間：
+                  td.value
+                    = "30分"
+                tr.recipe-review
+                  td.key 調理難易度：
+                  td.value
+                    - 5.times do
+                      / <i class="fas fa-star"></i>
+                      <i class="fas fa-carrot"></i>

@@ -1,13 +1,8 @@
 class User < ApplicationRecord
-# --- アソシエーション ---
-  has_many :recipes
-
-
-  
-# --- バリデーション ---
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable,
           :authentication_keys => [:user_name]
 
+# --- バリデーション ---
   with_options presence: true do
     validates :nick_name
     validates :user_name, uniqueness: true
