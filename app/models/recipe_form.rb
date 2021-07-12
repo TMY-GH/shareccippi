@@ -44,13 +44,17 @@ class RecipeForm
   def save
     recipe = Recipe.create(name: recipe_name, image: recipe_image, minute_id: minute, serving_id: serving, publish_id: publish, price: price, user_id: user_id)
     i = 0
+    # 材料と量を複数のレコードで保存
     ingredient_ids.each do |ingredient_id|
       amount = amounts[i]
       amount.to_i
       RecipeIngredient.create(ingredient_id: ingredient_id, amount: amount, recipe_id: recipe.id)
       i += 1
     end
-    Cooking.create(content: content, recipe_id: recipe.id)
+    # 調理方法を複数のレコードで保存
+    contents.each do |content|
+      Cooking.create(content: content, recipe_id: recipe.id)
+    end
   end
 end
 
