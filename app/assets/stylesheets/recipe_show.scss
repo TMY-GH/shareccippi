@@ -1,0 +1,135 @@
+.show-wrapper {
+  background-color: #fae5d0;
+  font-family: 'Noto Sans JP', serif;
+  font-size: 24px;
+}
+// --- レシピの各項目 ---
+.name-wrapper {
+  font-size: 36px;
+  font-weight: 500;
+  margin: 0 100px 20px 80px;
+  padding: 30px 40px 10px 40px;
+  border-bottom: 1px solid red;
+}
+
+.image-wrapper {
+  width: 85%;
+  margin: 0 auto;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 20px; 
+
+  img {
+    width: 100%;
+    height: 500px;
+    object-fit: contain;
+    border-radius: 20px; 
+  }
+}
+
+.details-wrapper {
+  display: flex;
+  padding: 30px 50px;
+  text-align: center;
+
+  .info {
+    font-weight: 900;
+    margin-top: 5px;
+
+    // 参照:https://webparts.cman.jp/string/outline/
+    .outline {
+      display        : inline-block;
+      color          : #ffa64d;            /* 文字の色 */
+      font-size      : 28pt;               /* 文字のサイズ */
+      letter-spacing : 2px;                /* 文字間 */
+      text-shadow    : 
+          1px  1px 0px #ffff99,
+          -1px  1px 0px #ffff99,
+          1px -1px 0px #ffff99,
+          -1px -1px 0px #ffff99,
+          1px  0px 0px #ffff99,
+          0px  1px 0px #ffff99,
+          -1px  0px 0px #ffff99,
+           0px -1px 0px #ffff99;        /* 文字の影 */
+    }
+  }
+
+  .minute-wrapper {
+    width: 33%;
+  }
+
+  .serving-wrapper {
+    width: 33%;
+  }
+
+  .price-wrapper {
+    width: 33%;
+  }
+}
+
+.ingredients-wrapper {
+  padding: 20px 100px;
+
+  .ingredients-heading {
+    font-size: 36px;
+    font-weight: 500;
+    padding-left: 40px;
+    margin-bottom: 10px;
+  }
+
+  .ingredients-container {
+    border: 6px dotted orange;
+    border-radius: 50px;
+    padding: 35px 70px 20px 50px;
+    display: flex;
+    justify-content: space-between;
+
+    .ingredients {
+      width: 60%;
+    }
+    .ingredient {
+      list-style-type: decimal;
+      list-style-position: inside;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+      padding-bottom: 15px;
+      margin-bottom: 15px;
+    }
+
+    .amounts {
+      width: 40%;
+      text-align: right;
+    }
+    .amount {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+      padding:0 20px 15px 0;
+      margin-bottom: 15px;
+    }
+  }
+}
+
+.cookings-wrapper {
+  padding: 20px 100px;
+
+  .cookings-heading {
+    font-size: 32px;
+    font-weight: 500;
+    padding-left: 40px;
+    margin-bottom: 10px;
+  }
+
+  .cookings-container {
+    border: 6px dotted rgb(0, 194, 97);
+    border-radius: 50px;
+    padding: 60px 70px 30px 60px;
+  }
+
+  .cooking {
+    font-size: 22px;
+    list-style-type: decimal;
+    line-height: 40px;
+    background-color: rgba(255, 171, 16, 0.6);
+    border-radius: 20px;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+  }
+}
