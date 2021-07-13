@@ -1,0 +1,72 @@
+.show-wrapper
+  .container
+    .name-wrapper
+      = @recipe.name
+    .image-wrapper
+      = image_tag @recipe.image
+    .details-wrapper
+      .minute-wrapper
+        span 調理時間
+        .info
+          span.outline
+            = @recipe.minute.time
+          span 分
+      .serving-wrapper
+        span 人数
+        .info
+          span.outline
+            = @recipe.serving.people
+          span 人
+      .price-wrapper
+        - if @recipe.price.present?
+          span 値段
+          .info
+            span.outline
+              = @recipe.price
+            span 円
+    .ingredients-wrapper
+      .ingredients-heading
+        h2 材料
+      .ingredients-container
+        ul.ingredients
+          - @recipe.ingredients.each do |ingredient|
+            li.ingredient
+              = ingredient.name
+        ul.amounts
+          - i = 0
+          - @recipe.recipe_ingredients.each do |ingredient|
+            li.amount
+              //「tr('０-９ａ-ｚＡ-Ｚ','0-9a-zA-Z')」全角を半角に
+              = ingredient.amount.tr('０-９ａ-ｚＡ-Ｚ','0-9a-zA-Z')
+              // スペースを入れる
+              <span> </span>
+              // 量に適応した単位をつける
+              - if @recipe.ingredients[i].name.include?("g")
+                span g
+              - elsif @recipe.ingredients[i].name.include?("個")
+                span 個
+              - elsif @recipe.ingredients[i].name.include?("本")
+                span 本
+              - elsif @recipe.ingredients[i].name.include?("cc")
+                span cc
+              - elsif @recipe.ingredients[i].name.include?("枚")
+                span 枚
+              - elsif @recipe.ingredients[i].name.include?("大さじ")
+                span 杯(大さじ)
+              - elsif @recipe.ingredients[i].name.include?("小さじ")
+                span 杯(小さじ)
+              - elsif @recipe.ingredients[i].name.include?("キューブ")
+                span キューブ
+              - elsif @recipe.ingredients[i].name.include?("パック")
+                span パック
+              - elsif @recipe.ingredients[i].name.include?("片")
+                span 片
+              - i += 1
+    .cookings-wrapper
+      .cookings-heading
+        h2 調理方法
+      .cookings-container
+        ul.cookings
+          - @recipe.cookings.each do |cooking|
+            li.cooking
+              = cooking.content

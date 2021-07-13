@@ -1,7 +1,12 @@
 class RecipesController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @recipes = Recipe.where(publish_id: "1")
+  end
+
+  def show
+    @recipe = Recipe.find(params[:id])
   end
 
   def new
@@ -10,9 +15,9 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = RecipeForm.new(recipe_params)
-    # if @recipe.valid? && @recipe.validates_ingredient_id_and_amount?
     if @recipe.valid?
-      @recipe.price.to_i
+      # 全角を半角に
+      @recipe.price.tr('０-９ａ-ｚＡ-Ｚ','0-9a-zA-Z')
       @recipe.save
       redirect_to root_path
     else
