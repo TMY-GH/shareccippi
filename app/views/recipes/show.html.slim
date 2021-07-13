@@ -22,7 +22,8 @@
           span 値段
           .info
             span.outline
-              = @recipe.price
+              //全角を半角に
+              = @recipe.price.tr('０-９ａ-ｚＡ-Ｚ','0-9a-zA-Z')
             span 円
     .ingredients-wrapper
       .ingredients-heading
