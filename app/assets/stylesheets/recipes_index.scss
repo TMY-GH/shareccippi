@@ -13,7 +13,34 @@ main {
   width: 80%;
   margin: 0 auto;
 }
+// --- レシピ検索 ---
+.search-bar {
+  text-align: center;
+  padding: 30px 0;
 
+  .search-input {
+    width: 500px;
+    height: 30px;
+    padding: 10px 60px 10px 30px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 40px;
+    text-align: left;
+  }
+
+  label {
+    vertical-align: middle;
+    position: relative;
+    right: 70px;
+  }
+  .fa-search {
+    font-size: 30px;
+    margin-left: 15px;
+    color: rgba(0, 0, 0, 0.8);
+  }
+}
+
+// --- レシピ一覧 ---
 .recipes {
   display: flex;
   justify-content: space-around;

@@ -48,6 +48,7 @@ class RecipesController < ApplicationController
   end
 
   def search
+    @recipes = SearchRecipesService.search(params[:keyword])
   end
 
   private
