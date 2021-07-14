@@ -74,7 +74,7 @@
     .buttons-wrapper
       - if user_signed_in? && current_user.id == @recipe.user_id
         .edit-button-wrapper
-          = link_to root_path, class: "edit-button btn" do
+          = link_to edit_recipe_path(@recipe), class: "edit-button btn" do
             = "編集する"
         .destroy-button-wrapper
           p.destroy-button.btn id="show_destroy_modal" 削除する
