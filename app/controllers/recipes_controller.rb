@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_recipe, only: [:show, :destroy, :edit, :update]
+  before_action :redirect_index, only: :edit
 
   def index
     @recipes = Recipe.where(publish_id: "1")
@@ -62,5 +63,11 @@ class RecipesController < ApplicationController
 
   def set_recipe
     @recipe = Recipe.find(params[:id])
+  end
+
+  def redirect_index
+    unless user_signed_in? && current_user.id == @recipe.user_id
+      redirect_to root_path
+    end
   end
 end
