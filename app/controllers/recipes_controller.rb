@@ -1,12 +1,12 @@
 class RecipesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_recipe, only: [:show, :destroy]
 
   def index
     @recipes = Recipe.where(publish_id: "1")
   end
 
   def show
-    @recipe = Recipe.find(params[:id])
   end
 
   def new
@@ -23,6 +23,11 @@ class RecipesController < ApplicationController
     end
   end
 
+  def destroy
+    @recipe.destroy
+    redirect_to root_path
+  end
+
   private
 
   def recipe_params
@@ -31,4 +36,7 @@ class RecipesController < ApplicationController
           .merge(user_id: current_user.id)
   end
 
+  def set_recipe
+    @recipe = Recipe.find(params[:id])
+  end
 end
