@@ -46,7 +46,8 @@ class RecipeForm
     # 材料と量を複数のレコードで保存
     ingredient_ids.each do |ingredient_id|
       amount = amounts[i]
-      amount.to_i
+      # 全角を半角にする
+      amount.tr('０-９ａ-ｚＡ-Ｚ','0-9a-zA-Z')
       RecipeIngredient.create(ingredient_id: ingredient_id, amount: amount, recipe_id: recipe.id)
       i += 1
     end
@@ -55,5 +56,36 @@ class RecipeForm
       Cooking.create(content: content, recipe_id: recipe.id)
     end
   end
+
+  def update
+    recipe = Recipe.find(recipe_id)
+    recipe.update(name: recipe_name, image: recipe_image, minute_id: minute, serving_id: serving, publish_id: publish, price: price, user_id: user_id)
+    
+    # 材料の元データの削除
+    ingredients = recipe.recipe_ingredients
+    ingredients.each do |ingredient|
+      ingredient.destroy
+    end
+    i = 0
+    # 材料と量を複数のレコードで保存
+    ingredient_ids.each do |ingredient_id|
+      amount = amounts[i]
+      # 全角を半角にする
+      amount.tr('０-９ａ-ｚＡ-Ｚ','0-9a-zA-Z')
+      RecipeIngredient.create(ingredient_id: ingredient_id, amount: amount, recipe_id: recipe.id)
+      i += 1
+    end
+    
+    # 調理方法の元データの削除
+    cookings = recipe.cookings
+    cookings.each do |cooking|
+      cooking.destroy
+    end
+    # 調理方法を複数のレコードで保存
+    contents.each do |content|
+      Cooking.create(content: content, recipe_id: recipe.id)
+    end
+  end
+
 end
 
