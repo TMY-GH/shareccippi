@@ -35,6 +35,8 @@ class RecipesController < ApplicationController
       @recipe_form.update
       redirect_to recipe_path(params[:id])
     else
+      @ingredients = @recipe.recipe_ingredients
+      @cookings = @recipe.cookings
       render :edit
     end
   end

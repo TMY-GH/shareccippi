@@ -61,7 +61,6 @@ class RecipeForm
 
   def update
     recipe = Recipe.find(recipe_id)
-    recipe.price.tr('０-９ａ-ｚＡ-Ｚ','0-9a-zA-Z')
     recipe.update(name: recipe_name, image: recipe_image, minute_id: minute, serving_id: serving, publish_id: publish, price: price, user_id: user_id)
     
     # 材料の元データの削除
