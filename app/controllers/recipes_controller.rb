@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :search]
   before_action :set_recipe, only: [:show, :destroy, :edit, :update]
   before_action :redirect_index, only: :edit
 
@@ -45,6 +45,9 @@ class RecipesController < ApplicationController
   def destroy
     @recipe.destroy
     redirect_to root_path
+  end
+
+  def search
   end
 
   private
