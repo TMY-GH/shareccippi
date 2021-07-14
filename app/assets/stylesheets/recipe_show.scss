@@ -134,17 +134,50 @@
   }
 }
 
+// --- 編集・削除ボタン ---
+.buttons-wrapper {
+  width: 80%;
+  margin: 0 auto;
+  padding: 50px;
+  display: flex;
+  justify-content: space-around;
+
+  .btn {
+    font-size: 30px;
+    padding: 20px 30px;
+    border-radius: 20px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.edit-button {
+  background-color:rgba(253, 220, 74, 0.9);
+  display: inline-block;
+}
+.destroy-button {
+  cursor: pointer;
+  background-color:rgba(255, 71, 71, 0.8);
+}
+
 // --- レシピ削除のモーダル ---
-.destroy-modal {
-  
+.active {
+  visibility: visible !important;
+  opacity: 1 !important;
+  transition: visibility, opacity 1s;
+}
+#destroy_modal {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility, opacity 0.5s;
+
   .modal-background {
     width: 100%;
+    // スマホ対策
     height: 100%;
     position: fixed;
     top: 0;
     left: 0;
     background: rgba(0, 0, 0, 0.5);
-    // display: none;
     z-index: 1;
   }
 
@@ -167,6 +200,7 @@
 
   .modal-message {
     font-size: 40px;
+    font-weight: 800;
     color: rgba(255, 0, 0, 0.8);
     line-height: 60px;
   }
@@ -193,8 +227,4 @@
     background-color: rgba(0, 0, 255, 0.8);
     cursor: pointer;
   }
-}
-
-.actice {
-  display: block;
 }
