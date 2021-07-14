@@ -25,6 +25,8 @@ class RecipesController < ApplicationController
 
   def edit
     @recipe_form = RecipeForm.new(recipe_name: @recipe.name, recipe_image: @recipe.image, minute: @recipe.minute.id, serving: @recipe.serving.id, publish: @recipe.publish.id, price: @recipe.price)
+    @ingredients = @recipe.recipe_ingredients
+    @cookings = @recipe.cookings
   end
 
   def update
