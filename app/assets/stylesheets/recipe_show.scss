@@ -133,3 +133,68 @@
     margin-bottom: 20px;
   }
 }
+
+// --- レシピ削除のモーダル ---
+.destroy-modal {
+  
+  .modal-background {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    // display: none;
+    z-index: 1;
+  }
+
+  .modal-wrapper {
+    width: 600px;
+    height: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(240, 240, 240);
+    border-radius: 50px;
+    z-index: 2;
+  }
+
+  .modal-container {
+    padding: 70px;
+    text-align: center;
+  }
+
+  .modal-message {
+    font-size: 40px;
+    color: rgba(255, 0, 0, 0.8);
+    line-height: 60px;
+  }
+
+  .modal-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 80px;
+  }
+
+  .modal-button {
+    font-size: 24px;
+    width: 35%;
+    display: inline-block;
+    color: white;
+    border-radius: 20px;
+    padding: 30px 10px;
+  }
+
+  .yes {
+    background-color: rgba(255, 0, 0, 0.8);
+  }
+  .no {
+    background-color: rgba(0, 0, 255, 0.8);
+    cursor: pointer;
+  }
+}
+
+.actice {
+  display: block;
+}

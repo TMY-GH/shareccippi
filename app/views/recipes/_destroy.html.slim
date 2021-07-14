@@ -1,0 +1,11 @@
+.destroy-modal
+  .modal-background
+    .modal-wrapper
+      .modal-container
+        .modal-message
+          h1 本当にこのレシピを<br>削除しますか？
+        .modal-buttons
+          = link_to recipe_path(recipe), class: "modal-button yes", method: :delete do
+            = "はい"
+          .modal-button.no
+            p いいえ

@@ -71,3 +71,5 @@
           - @recipe.cookings.each do |cooking|
             li.cooking
               = cooking.content
+
+= render partial: "destroy", locals: { recipe: @recipe }
