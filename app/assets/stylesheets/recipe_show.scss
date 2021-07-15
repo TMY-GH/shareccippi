@@ -13,10 +13,7 @@
 .like-button {
   font-size: 80px;
   color: #ffb94f;
-
-  button{
-    padding-bottom: 20px;
-  }
+  vertical-align: center;
   
   .far {
     color: #e0bc85;
@@ -27,7 +24,7 @@
 .name-wrapper {
   font-size: 36px;
   font-weight: 500;
-  width: calc(100% - 80px);
+  width: 750px;
   margin: 0 0 20px 80px;
   padding: 30px 40px 10px 40px;
   border-bottom: 1px solid red;
