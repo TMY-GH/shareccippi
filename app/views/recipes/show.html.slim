@@ -1,12 +1,15 @@
 .show-wrapper
   .container
-    .name-wrapper
-      = @recipe.name
-    .like-button
-      - if current_user.already_liked?(@recipe)
-        = button_to "お気に入りを外す", recipe_user_like_path(@recipe), method: :delete
-      - else
-        = button_to "お気に入り",  recipe_user_likes_path(@recipe)
+    .top-wrapper
+      .name-wrapper
+        = @recipe.name
+      .like-button
+        - if current_user.already_liked?(@recipe)
+          = button_to recipe_user_like_path(@recipe), method: :delete do
+            <i class="fas fa-star"></i>
+        - else
+          = button_to recipe_user_likes_path(@recipe) do
+            <i class="far fa-star"></i>
     .image-wrapper
       = image_tag @recipe.image
     .details-wrapper
