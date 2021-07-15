@@ -3,13 +3,8 @@
     .top-wrapper
       .name-wrapper
         = @recipe.name
-      .like-button
-        - if current_user.already_liked?(@recipe)
-          = button_to recipe_user_like_path(@recipe), method: :delete do
-            <i class="fas fa-star"></i>
-        - else
-          = button_to recipe_user_likes_path(@recipe) do
-            <i class="far fa-star"></i>
+      .like-button id="render_like_form"
+        = render partial: "like_form", locals: { recipe: @recipe }
     .image-wrapper
       = image_tag @recipe.image
     .details-wrapper

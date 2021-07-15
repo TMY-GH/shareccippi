@@ -81,8 +81,7 @@ const add_ingredient = () => {
       if (ingredient_max == max_input) {
         plus_btn.setAttribute("style", "display:none;");
       };
-    });
-      
+    }); 
   };
 };
 
