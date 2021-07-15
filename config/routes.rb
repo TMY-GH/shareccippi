@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :recipes do
     collection do
       get 'search'
+      get 'incremental_search'
     end
   end
 end

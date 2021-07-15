@@ -48,6 +48,13 @@ class RecipesController < ApplicationController
   end
 
   def search
+    @recipes = SearchRecipesService.search(params[:keyword])
+  end
+
+  # 非同期通信の予測変換用アクション
+  def incremental_search
+    ingredients = SearchRecipesService.incremental_search(params[:keyword])
+    render json:{ keyword: ingredients }
   end
 
   private
