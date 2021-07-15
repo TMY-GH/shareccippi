@@ -1,7 +1,8 @@
 class User < ApplicationRecord
 # --- アソシエーション ---
   has_many :recipes
-
+  has_many :user_likes
+  has_many :favorites, through: :user_likes, source: :recipe
 
   
 # --- バリデーション ---
