@@ -3,11 +3,29 @@
   font-family: 'Noto Sans JP', serif;
   font-size: 24px;
 }
+
+// --- お気に入りボタン ---
+.top-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.like-button {
+  font-size: 80px;
+  color: #ffb94f;
+  vertical-align: center;
+  
+  .far {
+    color: #e0bc85;
+  }
+}
+
 // --- レシピの各項目 ---
 .name-wrapper {
   font-size: 36px;
   font-weight: 500;
-  margin: 0 100px 20px 80px;
+  width: 750px;
+  margin: 0 0 20px 80px;
   padding: 30px 40px 10px 40px;
   border-bottom: 1px solid red;
 }

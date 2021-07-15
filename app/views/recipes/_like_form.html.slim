@@ -1,0 +1,11 @@
+- if current_user.already_liked?(recipe)
+  = 
+  = form_with url: "#{recipe.id}/user_likes/#{recipe.id}", method: :delete, id: "remove_like_form", remote: true do |f|
+    label for="remove_like"
+      <i class="fas fa-star" id="like remove_like"></i>
+      = f.submit "お気に入り削除", style:"display:none;", id: "remove_like"
+- else
+  = form_with url: recipe_user_likes_path(recipe), remote: true do |f|
+    label for="add_like"
+      <i class="far fa-star" id="like add_like"></i>
+      = f.submit "お気に入り追加", style:"display:none;", id: "add_like"

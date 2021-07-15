@@ -1,7 +1,10 @@
 .show-wrapper
   .container
-    .name-wrapper
-      = @recipe.name
+    .top-wrapper
+      .name-wrapper
+        = @recipe.name
+      .like-button id="render_like_form"
+        = render partial: "like_form", locals: { recipe: @recipe }
     .image-wrapper
       = image_tag @recipe.image
     .details-wrapper
