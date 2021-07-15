@@ -23,4 +23,11 @@ class SearchRecipesService
       Recipe.where(publish_id: "1")
     end
   end
+
+  def self.incremental_search(search)
+    return nil if search == ""
+    # マッチする材料の配列を取得
+    ingredients = Ingredient.where('name LIKE(?)', "%#{search}%")
+  end
+
 end

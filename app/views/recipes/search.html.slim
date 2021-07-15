@@ -6,6 +6,8 @@ main
           = f.text_field :keyword, placeholder: "レシピを検索", class: "search-input"
           label for="search_btn"
             <i class="fas fa-search"></i>
-            = f.submit "検索", class: "search-btn", id: "search_btn", style:"display:none;"
+            = f.submit "search", class: "search-btn", id: "search_btn", style:"display:none;"
+        // 予測変換用のスペース
+        #search_result
       .recipes
         = render partial: "recipe", collection: @recipes
