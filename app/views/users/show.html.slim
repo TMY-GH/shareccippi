@@ -4,16 +4,16 @@
       h1 マイページ
     .user-recipes-heading
       = "#{@user.user_name}さんのレシピ"
-      select.publish-setting
-        option 全部
-        option 公開
-        option 非公開
-    .recipes
-      - i = 1
-      - @recipes.each do |recipe|
-        - if i <= 6
-          =render partial: "recipes/recipe", locals: { recipe: recipe }
-          - i += 1
+      = form_with url: select_publish_user_path(@user), remote: true, id: "select_publish_form" do |f|
+        = f.select :publish, [['全部', 1], ['公開', 2], ['非公開', 3]], {}, { name: "select_publish_form[publish]"}
+        = f.submit "送信", id: "publish_submit", style: "display:none"
+    .recipes id="render_recipes"
+      / - i = 1
+      / - @recipes.each do |recipe|
+      /   - if i <= 6
+      /     =render partial: "recipes/recipe", locals: { recipe: recipe }
+      /     - i += 1
+      = render partial: "recipes/recipe", collection: @recipes
     .liked-recipes-heading
       p.favorite-title お気に入りのレシピ
     .liked-recipes-wrapper
