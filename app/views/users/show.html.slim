@@ -1,0 +1,25 @@
+.user-show-wrapper
+  .container
+    .heading
+      h1 マイページ
+    .user-recipes-heading
+      = "#{@user.user_name}さんのレシピ"
+      select.publish-setting
+        option 全部
+        option 公開
+        option 非公開
+    .recipes
+      - i = 1
+      - @recipes.each do |recipe|
+        - if i <= 6
+          =render partial: "recipes/recipe", locals: { recipe: recipe }
+          - i += 1
+    .liked-recipes-heading
+      p.favorite-title お気に入りのレシピ
+    .liked-recipes-wrapper
+      .liked-recipes
+        - i = 1
+        - @liked_recipes.each do |recipe|
+          - if i <= 6
+            =render partial: "recipes/recipe", locals: { recipe: recipe }
+            - i += 1
