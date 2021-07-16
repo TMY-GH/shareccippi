@@ -10,7 +10,6 @@ class RecipeForm
 # Validation
   with_options presence: true do
     validates :recipe_name
-    validates :recipe_image, presence: { message: "を選択してください" }
     validates :minute
     validates :serving
     validates :publish
@@ -61,8 +60,11 @@ class RecipeForm
 
   def update
     recipe = Recipe.find(recipe_id)
-    recipe.update(name: recipe_name, image: recipe_image, minute_id: minute, serving_id: serving, publish_id: publish, price: price, user_id: user_id)
-    
+    if recipe_image.blank?
+      recipe.update(name: recipe_name, minute_id: minute, serving_id: serving, publish_id: publish, price: price, user_id: user_id)
+    else
+      recipe.update(name: recipe_name, image: recipe_image, minute_id: minute, serving_id: serving, publish_id: publish, price: price, user_id: user_id)
+    end
     # 材料の元データの削除
     ingredients = recipe.recipe_ingredients
     ingredients.each do |ingredient|

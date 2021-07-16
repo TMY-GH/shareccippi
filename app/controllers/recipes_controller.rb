@@ -4,7 +4,8 @@ class RecipesController < ApplicationController
   before_action :redirect_index, only: :edit
 
   def index
-    @recipes = Recipe.where(publish_id: "1")
+    # 公開設定のレシピを作成日時が新しい順で表示
+    @recipes = Recipe.where(publish_id: "1").order("created_at DESC")
   end
 
   def show

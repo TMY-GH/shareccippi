@@ -30,11 +30,6 @@ RSpec.describe RecipeForm, type: :model do
         @recipe.valid?
         expect(@recipe.errors.full_messages).to include("料理名を入力してください")
       end
-      it '料理の写真がない' do
-        @recipe.recipe_image = nil
-        @recipe.valid?
-        expect(@recipe.errors.full_messages).to include("料理の写真を選択してください")
-      end
       it '調理時間がない' do
         @recipe.minute = nil
         @recipe.valid?

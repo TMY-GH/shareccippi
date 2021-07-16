@@ -1,4 +1,5 @@
 class Recipe < ApplicationRecord
+  before_create :default_image
 # Association
   belongs_to :user
   
@@ -16,4 +17,12 @@ class Recipe < ApplicationRecord
     belongs_to :serving
     belongs_to :publish
 
+# --- Method ---
+
+  # 料理の写真がない場合、初期画像の追加
+  def default_image
+    if !self.image.attached?
+      self.image.attach(io: File.open(Rails.root.join('public', 'images', 'default_recipe_image.jpg')), filename: 'default_recipe_image.jpg', content_type: 'image/jpg')
+    end
+  end
 end

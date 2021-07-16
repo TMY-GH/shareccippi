@@ -1,0 +1,5 @@
+.ingredient
+  = f.collection_select :ingredient_id, Ingredient.all.order("genre_id ASC"), :id, :name, { selected: ingredient_id }, { name: "recipe_form[ingredient_ids][]", id: "ingredient_select"}
+  span.amount 分量
+  = f.text_field :amount, name: "recipe_form[amounts][]", value: amount, placeholder: "数字のみ 例)100"
+  <i class="fas fa-times-circle remove_btn" style="cursor:pointer;"></i>

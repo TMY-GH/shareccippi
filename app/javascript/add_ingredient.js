@@ -3,7 +3,11 @@ const add_ingredient = () => {
     // 追加ボタン
     const plus_btn = document.getElementById("add_ingredient_btn");
     let ingredient_num = 0;
-    let ingredient_max = 0;
+    // 既に入力欄がある場合にMAX値の適応
+    if (document.getElementsByClassName("remove_btn")){
+      const remove_buttons = document.getElementsByClassName("remove_btn");
+      ingredient_max += remove_buttons.length;
+    };
     plus_btn.addEventListener('click', () => {
       const html = `
       <div class="ingredient" id="ingredient_${ingredient_num}">
@@ -84,5 +88,18 @@ const add_ingredient = () => {
     }); 
   };
 };
-
+const remove_ingredient = () => {
+  if (document.getElementsByClassName("remove_btn")[0]){
+    const remove_buttons = document.getElementsByClassName("remove_btn");
+    for (let i = 0; i < remove_buttons.length; i++) {
+      remove_buttons[i].addEventListener('click', () => {
+        let parent = remove_buttons[i].parentNode;
+        parent.remove();
+        ingredient_max -= 1;
+      });
+    };
+  };
+};
+let ingredient_max = 0;
 window.addEventListener('load', add_ingredient);
+window.addEventListener('load', remove_ingredient);
