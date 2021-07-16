@@ -20,7 +20,7 @@ class User < ApplicationRecord
 # --- Method ---
   # お気に入り済みか判断
   def already_liked?(recipe)
-    self.user_likes.exists?(recipe_id: recipe.id)
+    self.user_likes.exists?(recipe_id: recipe[:id])
   end
 
   # Remember_meを常にTrue

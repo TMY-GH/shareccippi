@@ -4,7 +4,8 @@
       .name-wrapper
         = @recipe.name
       .like-button id="render_like_form"
-        = render partial: "like_form", locals: { recipe: @recipe }
+        - if user_signed_in?
+          = render partial: "like_form", locals: { recipe: @recipe }
     .image-wrapper
       = image_tag @recipe.image
     .details-wrapper

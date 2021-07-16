@@ -1,5 +1,4 @@
 - if current_user.already_liked?(recipe)
-  = 
   = form_with url: "#{recipe.id}/user_likes/#{recipe.id}", method: :delete, id: "remove_like_form", remote: true do |f|
     label for="remove_like"
       <i class="fas fa-star" id="like remove_like"></i>
