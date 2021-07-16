@@ -1,5 +1,5 @@
 const like_animation = () => {
-  if (document.getElementsByClassName("like-button")){
+  if (document.getElementById("render_like_form")){
     let like_btn = document.getElementsByClassName("like-button");
     like_btn = like_btn[0];
     like_btn.addEventListener('mousedown', () =>{
