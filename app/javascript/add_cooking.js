@@ -3,7 +3,6 @@ const add_cooking = () => {
     // 追加ボタン
     const plus_btn = document.getElementById("add_cooking_btn");
     let cooking_num = 0;
-    let cooking_max = 0;
     plus_btn.addEventListener('click', () => {
       const html = `
       <div id="cooking_${cooking_num}">
@@ -37,5 +36,19 @@ const add_cooking = () => {
       
   };
 };
-
+const remove_cooking = () => {
+  console.log("success");
+  if (document.getElementsByClassName("remove_cooking_btn")[0]){
+    const remove_buttons = document.getElementsByClassName("remove_cooking_btn");
+    for (let i = 0; i < remove_buttons.length; i++) {
+      remove_buttons[i].addEventListener('click', () => {
+        let parent = remove_buttons[i].parentNode;
+        parent.remove();
+        cooking_max -= 1;
+      });
+    };
+  };
+};
+let cooking_max = 0;
 window.addEventListener('load', add_cooking);
+window.addEventListener('load', remove_cooking);

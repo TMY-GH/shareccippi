@@ -31,6 +31,7 @@
 
       .field.recipe-ingredient
         label 材料 (15個まで)
+        // エラー時に入力した値を保持
         - unless @recipe.ingredient_ids.blank?
           - i = 0
           - @recipe.ingredient_ids.each do |ingredient_id|
@@ -50,7 +51,13 @@
       .field.recipe-cooking
         label 調理方法 (10個まで)
         br
-        = f.text_area :content, name: "recipe_form[contents][]", rows: "4"
+        // エラー時に入力した値を保持
+        - unless @recipe.contents.blank?
+          - @recipe.contents.each do |content|
+            = render partial: "cooking", locals: { f: f, content: content}
+        - else
+          = f.text_area :content, name: "recipe_form[contents][]", rows: "4"
+
         #cooking-space
         <i class="fas fa-plus-square" id="add_cooking_btn"></i>
 

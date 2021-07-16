@@ -41,8 +41,7 @@
         label 調理方法 (10個まで)
         br
         - @cookings.each do |cooking|
-          .cooking
-            = f.text_area :content, name: "recipe_form[contents][]", rows: "4", value: cooking.content
+          = render partial: "cooking", locals: { f: f, content: cooking.content }
         #cooking-space
         <i class="fas fa-plus-square" id="add_cooking_btn"></i>
 
