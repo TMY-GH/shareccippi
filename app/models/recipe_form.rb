@@ -10,7 +10,6 @@ class RecipeForm
 # Validation
   with_options presence: true do
     validates :recipe_name
-    validates :recipe_image, presence: { message: "を選択してください" }, on: :create
     validates :minute
     validates :serving
     validates :publish
