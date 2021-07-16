@@ -2,7 +2,7 @@ main
   .content-frame
     .container
       .search-bar
-        = form_with(url: search_recipes_path, local: true, method: :get, class: "search-form") do |f|
+        = form_with(url: search_recipes_path, local: true, method: :post, class: "search-form") do |f|
           = f.text_field :keyword, placeholder: "レシピを検索", class: "search-input"
           // 予測変換用のスペース
           #search_result

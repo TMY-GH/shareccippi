@@ -8,4 +8,9 @@ Rails.application.routes.draw do
     end
     resources :user_likes, only: [:create, :destroy]
   end
+  resources :users, only: :show do
+    member do
+      post 'select_publish'
+    end
+  end
 end

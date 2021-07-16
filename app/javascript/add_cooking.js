@@ -37,7 +37,6 @@ const add_cooking = () => {
   };
 };
 const remove_cooking = () => {
-  console.log("success");
   if (document.getElementsByClassName("remove_cooking_btn")[0]){
     const remove_buttons = document.getElementsByClassName("remove_cooking_btn");
     for (let i = 0; i < remove_buttons.length; i++) {
