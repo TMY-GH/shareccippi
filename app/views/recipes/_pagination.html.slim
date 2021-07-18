@@ -3,5 +3,9 @@ ul.pagination
     = link_to page_prev_recipe_path(page), remote:true, style: "visibility:hidden" do
       <i class="fas fa-arrow-left"></i>
   li.next
-    = link_to page_next_recipe_path(page), remote:true do
-      <i class="fas fa-arrow-right"></i>
+    - if recipes.length < 9
+      = link_to page_next_recipe_path(page), remote:true, style: "visibility:hidden" do
+        <i class="fas fa-arrow-right"></i>
+    - else
+      = link_to page_next_recipe_path(page), remote:true do
+        <i class="fas fa-arrow-right"></i>

@@ -20,7 +20,7 @@ class SearchRecipesService
       @recipes.flatten!
       return @recipes
     else
-      Recipe.where(publish_id: "1")
+      Recipe.where(publish_id: "1").order("created_at DESC")
     end
   end
 

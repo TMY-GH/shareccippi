@@ -2,13 +2,12 @@ class RecipesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :search, :page_next, :page_prev]
   before_action :set_recipe, only: [:show, :destroy, :edit, :update]
   before_action :set_recipe_page, only: [:page_next, :page_prev]
-  before_action :set_recipe_step, only: [:index, :page_next, :page_prev]
+  before_action :set_recipe_step, only: [:index, :search, :page_next, :page_prev]
   before_action :redirect_index, only: :edit
 
   def index
     # 公開設定のレシピを作成日時が新しい順で表示
-    recipes = Recipe.where(publish_id: "1").order("created_at DESC")
-    # レシピは9つ表示
+    recipes = Recipe.where(publish_id: "1")
     @page = { id: "1"}
     @recipes = recipes[0..(@step - 1)]
   end
@@ -54,7 +53,10 @@ class RecipesController < ApplicationController
   end
 
   def search
-    @recipes = SearchRecipesService.search(params[:keyword])
+    recipes = SearchRecipesService.search(params[:keyword])
+    # レシピは9つ表示
+    @page = { id: "1"}
+    @recipes = recipes[0..(@step - 1)]
   end
 
   # 非同期通信の予測変換用アクション

@@ -9,5 +9,7 @@ main
             = f.submit "search", class: "search-btn", id: "search_btn", style:"display:none;"
         // 予測変換用のスペース
         #search_result
+      = render partial: "pagination", locals: { page: @page, recipes: @recipes }
       .recipes
         = render partial: "recipe", collection: @recipes
+      = render partial: "pagination", locals: { page: @page, recipes: @recipes }
