@@ -3,10 +3,10 @@
     .heading
       h1 マイページ
       #mypage-toggle
-        = link_to favorites_user_path(@user), method: :post, remote: true, class: "link-favorites" do
+        = link_to favorites_user_path(@user), method: :post, remote: true, class: "link-favorites", data: {"turbolinks"=>true} do
           <i class="fas fa-star"></i>
           = "お気に入りレシピへ"
-        / = link_to my_recipes_user_path(@user), method: :post, remote: true, class: "link-my-recipes" do
+        / = link_to my_recipes_user_path(@user), method: :post, remote: true, class: "link-my-recipes" data: {"turbolinks"=>true} do
         /   <i class="fas fa-book"></i>
         /   = "マイレシピへ"
     #render_mypage_recipes
