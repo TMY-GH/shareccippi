@@ -1,0 +1,3 @@
+document.getElementById('render_mypage_recipes').innerHTML = '<%= j(render partial: "my_favorite_recipes", locals: { liked_recipes: @liked_recipes }) %>';
+document.getElementById('mypage-toggle').innerHTML = `
+<a class="link-my-recipes" data-remote="true" rel="nofollow" data-method="post" href="/users/1/my_recipes"><i class="fas fa-book" aria-hidden="true"></i>マイレシピへ</a>`;

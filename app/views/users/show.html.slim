@@ -2,19 +2,12 @@
   .container
     .heading
       h1 マイページ
-    .user-recipes-heading
-      = "#{@user.nick_name}さんのレシピ"
-      = form_with url: select_publish_user_path(@user), remote: true, id: "select_publish_form" do |f|
-        = f.select :publish, [['全部', 1], ['公開', 2], ['非公開', 3]], {}, { name: "select_publish_form[publish]"}
-        = f.submit "送信", id: "publish_submit", style: "display:none"
-    .recipes id="render_recipes"
-      = render partial: "recipes/recipe", collection: @recipes
-    .liked-recipes-heading
-      p.favorite-title お気に入りのレシピ
-    .liked-recipes-wrapper
-      .liked-recipes
-        - i = 1
-        - @liked_recipes.each do |recipe|
-          - if i <= 6
-            =render partial: "recipes/recipe", locals: { recipe: recipe }
-            - i += 1
+      #mypage-toggle
+        = link_to favorites_user_path(@user), method: :post, remote: true, class: "link-favorites" do
+          <i class="fas fa-star"></i>
+          = "お気に入りレシピへ"
+        / = link_to my_recipes_user_path(@user), method: :post, remote: true, class: "link-my-recipes" do
+        /   <i class="fas fa-book"></i>
+        /   = "マイレシピへ"
+    #render_mypage_recipes
+      = render partial: "my_recipes", locals: { recipes: @recipes }
