@@ -6,7 +6,7 @@ html
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_pack_tag 'application'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     // googleフォント Noto Sans JP
     link rel="preconnect" href="https://fonts.googleapis.com"
     link rel="preconnect" href="https://fonts.gstatic.com"
@@ -14,7 +14,7 @@ html
     link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@500&display=swap" rel="stylesheet"
     // Font Awesome
     <script src="https://kit.fontawesome.com/5df36845f1.js" crossorigin="anonymous"></script>
-  body
+  body data-turbolinks="false"
     = render partial: "shared/header"
     = yield
     = render partial: "shared/footer"
