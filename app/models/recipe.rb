@@ -8,7 +8,7 @@ class Recipe < ApplicationRecord
   has_many :ingredients, through: :recipe_ingredients
   has_many :cookings, dependent: :destroy
 
-  has_many :user_likes
+  has_many :user_likes, dependent: :destroy
   has_many :users, through: :user_likes
 
 # ActiveHash
