@@ -1,0 +1,35 @@
+document.getElementById('render_recipes').innerHTML = '<%= j(render partial: "recipe", collection: @recipes) %>';
+
+var paginations = document.getElementsByClassName("pagination");
+for (let i = 0; i < paginations.length; i++){
+  let pagination = paginations[i];
+  let prev = pagination.childNodes[0];
+  let next = pagination.childNodes[2];
+  let page = <%= @page %>
+  prev.innerHTML = `
+    <a data-remote="true" href="/recipes/${page - 1}/page_prev"><i class="fas fa-arrow-left" aria-hidden="true"></i></a>`;
+  next.innerHTML = `
+    <a data-remote="true" href="/recipes/${page + 1}/page_next"><i class="fas fa-arrow-right" aria-hidden="true"></i></a>`;
+
+  // 左矢印を消す
+  if ( page == 0 ){
+    prev.setAttribute("style", "visibility:hidden;");
+  };
+  // 右矢印を表示させる
+  let step = <%= @step %> 
+  let sum_recipes = (page + 1) * step;
+  let num_recipes = <%= @recipes_len %>
+  if ( sum_recipes <= num_recipes ){
+    next.removeAttribute("style", "visibility:hidden;");
+  };
+
+  // ページ数を書き換える
+  let current_page = pagination.childNodes[1];
+  if ( num_recipes % step == 0 ) {
+    max_page = Math.floor(num_recipes / step);
+  }else{
+    max_page = Math.floor(num_recipes / step + 1);
+  };
+  current_page.innerHTML = `
+    レシピ：${num_recipes}件  ページ：${page + 1}/${max_page}`;
+};

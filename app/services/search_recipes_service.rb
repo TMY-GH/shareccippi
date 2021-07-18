@@ -11,16 +11,23 @@ class SearchRecipesService
       end
       # 配列の中の配列をなくす
       ingredient_recipes.flatten!
-      @recipes = []
-      ingredient_recipes.each do |recipe|
+      recipes_array = %w[]
+      # idの順番
+      ordered_recipes = []
+      ingredient_recipes.each do |ingredient_recipe|
         # 中間テーブルのrecipe_idからRecipeのレコードを取得
-        @recipes.push(Recipe.where(id: recipe.recipe_id))
+        recipes = Recipe.where(id: ingredient_recipe.recipe_id)
+        recipes_array.push(recipes)
+        recipes.each do |recipe|
+          ordered_recipes.push(recipe.id)
+        end
       end
       # 配列の中の配列をなくす
-      @recipes.flatten!
-      return @recipes
+      recipes_array.flatten!
+      ordered_recipes = recipes_array.sort{|a,b| (-1)*(a <=> b)}
+      return ordered_recipes
     else
-      Recipe.where(publish_id: "1")
+      Recipe.where(publish_id: "1").order("created_at DESC")
     end
   end
 

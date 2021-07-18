@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @recipes = @user.recipes
+    @recipes = @user.recipes.order("created_at DESC")
     @liked_recipes = @user.favorites
   end
 
@@ -18,11 +18,6 @@ class UsersController < ApplicationController
     when "3"
       @recipes = user.recipes.where(publish_id: 2)
     end
-    # respond_to do |format|
-    #   format.html { binding.pry }
-    #   format.json { binding.pry }
-    #   format.js { binding.pry }
-    # end
   end
   
   private
