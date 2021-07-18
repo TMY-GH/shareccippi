@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user
 
   def show
+    redirect_index
     @recipes = @user.recipes.order("created_at DESC")
   end
 
