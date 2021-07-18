@@ -1,3 +1,12 @@
 document.getElementById('render_mypage_recipes').innerHTML = '<%= j(render partial: "my_recipes", locals: { recipes: @recipes }) %>';
 document.getElementById('mypage-toggle').innerHTML = `
 <a class="link-favorites" data-remote="true" rel="nofollow" data-method="post" href="/users/1/favorites"><i class="fas fa-star" aria-hidden="true"></i>お気に入りレシピへ</a>`;
+
+
+if (document.getElementById("publish")){
+  const select_form = document.getElementById("publish");
+  select_form.addEventListener('change', (e) => {
+    const submit_btn = document.getElementById("publish_submit");
+    submit_btn.click();
+  });
+};
