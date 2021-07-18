@@ -10,6 +10,7 @@ class RecipesController < ApplicationController
     recipes = Recipe.where(publish_id: "1").order("created_at DESC")
     @page = { id: "1"}
     @recipes = recipes[0..(@step - 1)]
+    @recipes_len = recipes.length
   end
 
   def show
@@ -57,6 +58,7 @@ class RecipesController < ApplicationController
     # レシピは9つ表示
     @page = { id: "1"}
     @recipes = recipes[0..(@step - 1)]
+    @recipes_len = recipes.length
   end
 
   # 非同期通信の予測変換用アクション

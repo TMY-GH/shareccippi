@@ -9,7 +9,7 @@ main
           label for="search_btn"
             <i class="fas fa-search"></i>
             = f.submit "search", class: "search-btn", id: "search_btn", style:"display:none;"
-      = render partial: "pagination", locals: { page: @page, recipes: @recipes }
+      = render partial: "pagination", locals: { page: @page, step: @step, recipes: @recipes, recipes_len: @recipes_len}
       .recipes id="render_recipes"
         = render partial: "recipe", collection: @recipes
-      = render partial: "pagination", locals: { page: @page, recipes: @recipes }
+      = render partial: "pagination", locals: { page: @page, step: @step, recipes: @recipes, recipes_len: @recipes_len}
