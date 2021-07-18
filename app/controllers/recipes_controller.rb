@@ -7,7 +7,7 @@ class RecipesController < ApplicationController
 
   def index
     # 公開設定のレシピを作成日時が新しい順で表示
-    recipes = Recipe.where(publish_id: "1")
+    recipes = Recipe.where(publish_id: "1").order("created_at DESC")
     @page = { id: "1"}
     @recipes = recipes[0..(@step - 1)]
   end
