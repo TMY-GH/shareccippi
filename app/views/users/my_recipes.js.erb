@@ -1,6 +1,7 @@
 document.getElementById('render_mypage_recipes').innerHTML = '<%= j(render partial: "my_recipes", locals: { recipes: @recipes }) %>';
+var user_id = <%= @user.id %>;
 document.getElementById('mypage-toggle').innerHTML = `
-<a class="link-favorites" data-turbolinks="true" data-remote="true" rel="nofollow" data-method="post" href="/users/1/favorites"><i class="fas fa-star" aria-hidden="true"></i>お気に入りレシピへ</a>`;
+<a class="link-favorites" data-turbolinks="true" data-remote="true" rel="nofollow" data-method="post" href="/users/${user_id}/favorites"><i class="fas fa-star" aria-hidden="true"></i>お気に入りレシピへ</a>`;
 
 
 if (document.getElementById("publish")){

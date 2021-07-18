@@ -1,3 +1,4 @@
 document.getElementById('render_mypage_recipes').innerHTML = '<%= j(render partial: "my_favorite_recipes", locals: { liked_recipes: @liked_recipes }) %>';
+var user_id = <%= @user.id %>;
 document.getElementById('mypage-toggle').innerHTML = `
-<a class="link-my-recipes" data-turbolinks="true" data-remote="true" rel="nofollow" data-method="post" href="/users/1/my_recipes"><i class="fas fa-book" aria-hidden="true"></i>マイレシピへ</a>`;
+<a class="link-my-recipes" data-turbolinks="true" data-remote="true" rel="nofollow" data-method="post" href="/users/${user_id}/my_recipes"><i class="fas fa-book" aria-hidden="true"></i>マイレシピへ</a>`;
