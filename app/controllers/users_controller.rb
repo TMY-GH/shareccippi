@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :redirect_index
+  before_action :redirect_index, only: :show
   before_action :set_user
 
   def show
