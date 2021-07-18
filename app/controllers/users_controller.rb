@@ -11,19 +11,11 @@ class UsersController < ApplicationController
     select_id = params[:select_publish_form][:publish]
     case select_id
     when "1"
-<<<<<<< Updated upstream
       @recipes = @user.recipes.order("created_at DESC")
     when "2"
       @recipes = @user.recipes.where(publish_id: 1).order("created_at DESC")
     when "3"
       @recipes = @user.recipes.where(publish_id: 2).order("created_at DESC")
-=======
-      @recipes = user.recipes.order("created_at DESC")
-    when "2"
-      @recipes = user.recipes.where(publish_id: 1).order("created_at DESC")
-    when "3"
-      @recipes = user.recipes.where(publish_id: 2).order("created_at DESC")
->>>>>>> Stashed changes
     end
   end
   
