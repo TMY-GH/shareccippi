@@ -12,11 +12,11 @@ class UsersController < ApplicationController
     user = User.find(params[:id])
     case select_id
     when "1"
-      @recipes = user.recipes
+      @recipes = user.recipes.order("created_at DESC")
     when "2"
-      @recipes = user.recipes.where(publish_id: 1)
+      @recipes = user.recipes.where(publish_id: 1).order("created_at DESC")
     when "3"
-      @recipes = user.recipes.where(publish_id: 2)
+      @recipes = user.recipes.where(publish_id: 2).order("created_at DESC")
     end
   end
   
