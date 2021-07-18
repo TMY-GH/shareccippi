@@ -1,11 +1,16 @@
 class RecipesController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show, :search]
+  before_action :authenticate_user!, except: [:index, :show, :search, :page_next, :page_prev]
   before_action :set_recipe, only: [:show, :destroy, :edit, :update]
+  before_action :set_recipe_page, only: [:page_next, :page_prev]
+  before_action :set_recipe_step, only: [:index, :page_next, :page_prev]
   before_action :redirect_index, only: :edit
 
   def index
     # 公開設定のレシピを作成日時が新しい順で表示
-    @recipes = Recipe.where(publish_id: "1").order("created_at DESC")
+    recipes = Recipe.where(publish_id: "1").order("created_at DESC")
+    # レシピは9つ表示
+    @page = { id: "1"}
+    @recipes = recipes[0..(@step - 1)]
   end
 
   def show
@@ -58,6 +63,22 @@ class RecipesController < ApplicationController
     render json:{ keyword: ingredients }
   end
 
+  # レシピのページ送り機能アクション
+  def page_next
+    first_index = @page * @step
+    last_index = ((@page + 1) * @step) - 1;
+    recipes = Recipe.where(publish_id: "1").order("created_at DESC")
+    @recipes_len = recipes.length
+    @recipes = recipes[first_index..last_index]
+  end
+
+  def page_prev
+    first_index = @page * @step
+    last_index = (@page + 1) * @step - 1;
+    recipes = Recipe.where(publish_id: "1").order("created_at DESC")
+    @recipes_len = recipes.length
+    @recipes = recipes[first_index..last_index]
+  end
   private
 
   def recipe_params_create
@@ -74,6 +95,13 @@ class RecipesController < ApplicationController
 
   def set_recipe
     @recipe = Recipe.find(params[:id])
+  end
+
+  def set_recipe_page
+    @page = params[:id].to_i
+  end
+  def set_recipe_step
+    @step = 9
   end
 
   def redirect_index

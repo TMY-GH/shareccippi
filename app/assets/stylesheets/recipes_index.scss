@@ -41,7 +41,7 @@ main {
   }
 }
 
-// 予測変換
+// --- 予測変換 ---
 #search_result {
   position: absolute;
   z-index: 1;
@@ -56,6 +56,19 @@ main {
     font-size: 18px;
     padding: 10px 20px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+}
+
+// --- ページング--- 
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 30px;
+  
+  i {
+    font-size: 80px;
+    cursor: pointer;
+    color: rgb(255, 0, 55);
   }
 }
 

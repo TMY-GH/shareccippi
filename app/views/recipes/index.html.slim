@@ -2,12 +2,14 @@ main
   .content-frame
     .container
       .search-bar
-        = form_with(url: search_recipes_path, local: true, method: :post, class: "search-form") do |f|
+        = form_with(url: search_recipes_path, local: true, method: :get, class: "search-form") do |f|
           = f.text_field :keyword, placeholder: "レシピを検索", class: "search-input"
           // 予測変換用のスペース
           #search_result
           label for="search_btn"
             <i class="fas fa-search"></i>
             = f.submit "search", class: "search-btn", id: "search_btn", style:"display:none;"
-      .recipes
+      = render partial: "pagination", locals: { page: @page }
+      .recipes id="render_recipes"
         = render partial: "recipe", collection: @recipes
+      = render partial: "pagination", locals: { page: @page }

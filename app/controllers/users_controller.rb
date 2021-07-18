@@ -18,11 +18,6 @@ class UsersController < ApplicationController
     when "3"
       @recipes = user.recipes.where(publish_id: 2)
     end
-    # respond_to do |format|
-    #   format.html { binding.pry }
-    #   format.json { binding.pry }
-    #   format.js { binding.pry }
-    # end
   end
   
   private

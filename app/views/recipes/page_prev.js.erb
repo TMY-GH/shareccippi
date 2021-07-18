@@ -1,0 +1,25 @@
+document.getElementById('render_recipes').innerHTML = '<%= j(render partial: "recipe", collection: @recipes) %>';
+console.log(<%= @page %>);
+var paginations = document.getElementsByClassName("pagination");
+for (let i = 0; i < paginations.length; i++){
+  let pagination = paginations[i];
+  let prev = pagination.childNodes[0];
+  let next = pagination.childNodes[1];
+  let page = <%= @page %>
+  prev.innerHTML = `
+    <a data-remote="true" href="/recipes/${page - 1}/page_prev"><i class="fas fa-arrow-left" aria-hidden="true"></i></a>`;
+  next.innerHTML = `
+    <a data-remote="true" href="/recipes/${page + 1}/page_next"><i class="fas fa-arrow-right" aria-hidden="true"></i></a>`;
+
+  // 左矢印を消す
+  if ( page == 0 ){
+    prev.setAttribute("style", "visibility:hidden;");
+  };
+  // 右矢印を表示させる
+  let step = <%= @step %> 
+  let sum_recipes = (page + 1) * step;
+  let num_recipes = <%= @recipes_len %>
+  if ( sum_recipes <= num_recipes ){
+    next.removeAttribute("style", "visibility:hidden;");
+  };
+};
