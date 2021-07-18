@@ -2,4 +2,12 @@
   .container
     .heading
       h1 マイページ
-    = render partial: "my_recipes", locals: { recipes: @recipes }
+      #mypage-toggle
+        = link_to favorites_user_path(@user), method: :post, remote: true, class: "link-favorites" do
+          <i class="fas fa-star"></i>
+          = "お気に入りレシピへ"
+        / = link_to my_recipes_user_path(@user), method: :post, remote: true, class: "link-my-recipes" do
+        /   <i class="fas fa-book"></i>
+        /   = "マイレシピへ"
+    #render_mypage_recipes
+      = render partial: "my_recipes", locals: { recipes: @recipes }
