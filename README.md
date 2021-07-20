@@ -15,6 +15,7 @@
 - has_many :favorites, through: :user_likes, source: :recipe
 - has_many :user_groups
 - has_many :groups, through: :user_groups
+- has_many :reviews
 
 #### その他
 Active_storageで画像のの追加<br>
@@ -54,7 +55,7 @@ Active_storageで画像のの追加<br>
 - has_many :groups, through: :group_likes
 - has_many :recipe-tags
 - has_many :tags, through: :recipe-tags
-- has_one :review
+- has_many :reviews
 *****
 
 ## Ingredientテーブル
@@ -167,7 +168,10 @@ Active_storageで画像のの追加<br>
 | Column                   | Type          | Option                         |
 |--------------------------|---------------|--------------------------------|
 | difficulty               | integer       | null: false                    |
+| comment                  | text          |                                |
 | recipe_id                | references    | null: false, foreign_key: true |
+| user_id                  | references    | null: false, foreign_key: true |
 
 ### Association
+- belongs_to :users
 - belongs_to :recipes
