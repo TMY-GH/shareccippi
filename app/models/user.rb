@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_many :recipes
   has_many :user_likes
   has_many :favorites, through: :user_likes, source: :recipe
+  has_many :reviews
 
   
 # --- バリデーション ---
