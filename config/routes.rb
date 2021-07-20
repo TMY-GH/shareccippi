@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       get 'page_prev'
     end
     resources :user_likes, only: [:create, :destroy]
+    resources :reviews, only: [:create, :destroy]
   end
   resources :users, only: :show do
     member do

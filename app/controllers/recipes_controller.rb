@@ -8,12 +8,16 @@ class RecipesController < ApplicationController
   def index
     # 公開設定のレシピを作成日時が新しい順で表示
     recipes = Recipe.where(publish_id: "1").order("created_at DESC")
+    @review_recipes = Recipe.where(publish_id: "1").order("created_at DESC").includes(:review)
     @page = { id: "1"}
     @recipes = recipes[0..(@step - 1)]
     @recipes_len = recipes.length
   end
 
   def show
+    @review = Review.new
+    @reviews = @recipe.reviews.where.not(user_id: @recipe.user.id).includes(:user)
+
   end
 
   def new
@@ -31,7 +35,7 @@ class RecipesController < ApplicationController
   end
 
   def edit
-    @recipe_form = RecipeForm.new(recipe_name: @recipe.name, recipe_image: @recipe.image, minute: @recipe.minute.id, serving: @recipe.serving.id, publish: @recipe.publish.id, price: @recipe.price)
+    @recipe_form = RecipeForm.new(recipe_name: @recipe.name, recipe_image: @recipe.image, minute: @recipe.minute.id, serving: @recipe.serving.id, publish: @recipe.publish.id, price: @recipe.price, difficulty: @recipe.reviews.find_by(user_id: current_user.id).difficulty)
     @ingredients = @recipe.recipe_ingredients
     @cookings = @recipe.cookings
   end
@@ -87,13 +91,13 @@ class RecipesController < ApplicationController
 
   def recipe_params_create
     params.require(:recipe_form)
-          .permit(:recipe_name, :recipe_image, :minute, :serving, :publish, :price, contents: [], ingredient_ids: [], amounts: [])
+          .permit(:recipe_name, :recipe_image, :minute, :serving, :publish, :price, :difficulty, contents: [], ingredient_ids: [], amounts: [])
           .merge(user_id: current_user.id)
   end
 
   def recipe_params_update
     params.require(:recipe_form)
-          .permit(:recipe_name, :recipe_image, :minute, :serving, :publish, :price, contents: [], ingredient_ids: [], amounts: [])
+          .permit(:recipe_name, :recipe_image, :minute, :serving, :publish, :price, :difficulty, contents: [], ingredient_ids: [], amounts: [])
           .merge(user_id: current_user.id, recipe_id: params[:id])
   end
 

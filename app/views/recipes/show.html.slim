@@ -83,4 +83,35 @@
         .destroy-button-wrapper
           p.destroy-button.btn id="show_destroy_modal" 削除する
 
+    .reviews-wrapper
+      .review-heading
+        h1 レシピのレビュー
+      - if user_signed_in?
+        .review-form
+          - if current_user.commentable?(@recipe)
+            = form_with model: @review, url: recipe_reviews_path(@recipe) do |f|
+              = f.text_area :comment, row: "2", placeholder: "コメントを入力する"
+              .difficulty-title 調理難易度選択：
+              = f.select :difficulty, [['かんたん', 1], ['ふつう', 2], ['むずかしい', 3]]
+              = f.submit "送信", class: "submit"
+      - if @reviews.exists?
+        ul.comments-wrapper
+          - @reviews.each do |review|
+            li.review
+              p.difficulty 
+                | レビュー難易度：
+                - review.difficulty.times do
+                  <i class="fas fa-carrot"></i>
+              p.user 
+                | 投稿者：
+                = "#{review.user.nick_name}さん"
+              - if user_signed_in? && review.user.id == current_user.id
+                = link_to "削除する", recipe_review_path(@recipe, review.id), method: :delete, class: "review-destroy"
+              - if review.comment
+                .comment
+                  = review.comment
+              - else
+                .comment
+                  = "コメントはありません"
+
 = render partial: "destroy", locals: { recipe: @recipe }

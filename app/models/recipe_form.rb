@@ -5,7 +5,8 @@ class RecipeForm
 
   attr_accessor :recipe_name, :recipe_image, :minute, :serving, :publish, :price, :user_id,
                 :ingredient_ids, :amounts, :recipe_id,
-                :contents, :caution
+                :contents, :caution,
+                :difficulty
 
 # Validation
   with_options presence: true do
@@ -17,6 +18,7 @@ class RecipeForm
     validates :ingredient_ids
     validates :amounts
     validates :contents
+    validates :difficulty
   end
   # ActiveHashは0を選べない
   with_options numericality: { other_than: 0, message: "は---以外を選択してください" } do
@@ -38,8 +40,11 @@ class RecipeForm
   # 調理方法(配列)のバリデーション
   validates :contents, content: true
 
+  # 調理難易度は1~3以外選べない
+  validates :difficulty, numericality: { :greater_than_or_equal_to => 1, :less_than_or_equal_to => 3, message: "が正しく選択されていません" }
 
-# --- Method ---
+
+# --- Method ----------------------------
 
   def save
     recipe = Recipe.create(name: recipe_name, image: recipe_image, minute_id: minute, serving_id: serving, publish_id: publish, price: price, user_id: user_id)
@@ -56,6 +61,8 @@ class RecipeForm
     contents.each do |content|
       Cooking.create(content: content, recipe_id: recipe.id)
     end
+    # 調理難易度の保存
+    Review.create(difficulty: difficulty, user_id: user_id, recipe_id: recipe.id)
   end
 
   def update
@@ -89,6 +96,7 @@ class RecipeForm
     contents.each do |content|
       Cooking.create(content: content, recipe_id: recipe.id)
     end
+    recipe.reviews.find_by(user_id: user_id).update(difficulty: difficulty)
   end
 
 end

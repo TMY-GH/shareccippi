@@ -54,5 +54,9 @@
         = f.text_field :price, placeholder: "入力は任意"
         p 円
         
+      .field.recipe-difficulty
+        label 調理難易度：
+        = f.select :difficulty, [['かんたん', 1], ['ふつう', 2], ['むずかしい', 3]]
+        
       .submit-wrapper  
         = f.submit "レシピを作る", class:"submit"

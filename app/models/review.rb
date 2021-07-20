@@ -7,4 +7,8 @@ class Review < ApplicationRecord
 
 # Validation
   validates :difficulty, presence: true
+  validates :difficulty, numericality: { :greater_than_or_equal_to => 1, :less_than_or_equal_to => 3, message: "が正しく選択されていません" }
+
+# Method
+
 end
