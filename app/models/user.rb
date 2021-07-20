@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_many :recipes
   has_many :user_likes
   has_many :favorites, through: :user_likes, source: :recipe
+  has_many :reviews
 
   
 # --- バリデーション ---
@@ -18,6 +19,18 @@ class User < ApplicationRecord
   validates :user_name, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-zA-Z\d]{4,16}\z/i, message: "が正しくありません"}
 
 # --- Method ---
+  
+# 投稿者本人と既にレビューした人はコメントできません
+  def commentable?(recipe)
+    if self.reviews.exists?(recipe_id: recipe[:id])
+      return false
+    elsif recipe.user.id == self.id
+      return false
+    else
+      return true
+    end
+  end
+
   # お気に入り済みか判断
   def already_liked?(recipe)
     self.user_likes.exists?(recipe_id: recipe[:id])

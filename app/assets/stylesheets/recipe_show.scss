@@ -152,6 +152,83 @@
   }
 }
 
+.reviews-wrapper {
+  margin: 0 120px;
+  padding: 20px;
+
+  .review-heading {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+  .review-form {
+    select {
+      margin:0 15px 0 5px;
+      padding: 1px 5px 1px 15px;
+      font-size: 18px;
+      background-color: rgb(255, 181, 71);
+      border-radius: 10px;
+    }
+    textarea {
+      font-size: 18px;
+      width: 100%;
+      border: 1px solid rgb(255, 181, 71);
+      background-color: white;
+      padding: 10px;
+      margin-bottom: 15px;
+    }
+    .difficulty-title {
+      display: inline-block;
+      font-size: 20px;
+      padding-left: 20px;
+    }
+    .submit {
+      font-size: 18px;
+      width: 60px;
+      padding: 7px 5px 10px;
+      margin-top: 3px;
+      background-color: rgb(255, 128, 70);
+      box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+      color: white;
+      border-radius: 10px;
+      text-align: center;
+    }
+  }
+
+  .comments-wrapper {
+    padding: 10px 40px;
+    border: 4px dotted rgb(194, 110, 0);
+    border-radius: 20px;
+    li {
+      list-style-type: decimal;
+      padding-bottom: 10px;
+    }
+    p {
+      display: inline-block;
+      font-size: 20px;
+    }
+    .difficulty {
+      margin: 0 20px;
+      .fa-carrot{
+        color:rgb(223, 131, 52);
+      }
+    }
+    .user {
+      margin: 0 50px;
+    }
+    .review-destroy {
+      font-size: 20px;
+      color: rgba(255, 0, 0, 0.8);
+    }
+    .comment {
+      padding: 10px 20px;
+      background-color: rgb(255, 198, 112);
+      border-radius: 20px;
+      height: 80px;
+      overflow: scroll;
+    }
+  }
+}
+
 // --- 編集・削除ボタン ---
 .buttons-wrapper {
   width: 80%;

@@ -1,5 +1,5 @@
 .recipe
-  = link_to recipe_path(recipe.id) do
+  = link_to recipe_path(recipe) do
     .recipe-image
       = image_tag recipe.image
     .recipe-name
@@ -19,5 +19,9 @@
         tr.recipe-review
           td.key 調理難易度：
           td.value
-            - 5.times do
+            - sum_reviews = 0
+            - recipe.reviews.each do |review|
+              - sum_reviews += review.difficulty.to_i
+            - average_reviews = sum_reviews / recipe.reviews.length
+            - average_reviews.times do
               <i class="fas fa-carrot"></i>

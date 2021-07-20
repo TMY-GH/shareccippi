@@ -9,5 +9,6 @@ FactoryBot.define do
     amounts               { ["100", "200"] }
     contents              { ["テスト調理方法", "テスト調理方法２"] }
     caution               { "注意書き" }
+    difficulty            { 1 }
   end
 end

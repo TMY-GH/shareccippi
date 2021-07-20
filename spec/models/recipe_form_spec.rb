@@ -101,6 +101,16 @@ RSpec.describe RecipeForm, type: :model do
         @recipe.valid?
         expect(@recipe.errors.full_messages).to include("公開設定は---以外を選択してください")
       end
+      it '調理難易度が選択されていない' do
+        @recipe.difficulty = nil
+        @recipe.valid?
+        expect(@recipe.errors.full_messages).to include("調理難易度を入力してください")
+      end
+      it '調理難易度で１〜３以外が選択されている' do
+        @recipe.difficulty = 4
+        @recipe.valid?
+        expect(@recipe.errors.full_messages).to include("調理難易度が正しく選択されていません")
+      end
     end
     
   end

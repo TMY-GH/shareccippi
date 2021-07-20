@@ -9,7 +9,7 @@ ul.pagination
       - max_page = recipes_len / step + 1
     = "レシピ：#{recipes_len}件  ページ：#{page[:id].to_i}/#{max_page}"
   li.next
-    - if recipes.length < step
+    - if recipes.length > step
       = link_to page_next_recipe_path(page), remote:true, style: "visibility:hidden" do
         <i class="fas fa-arrow-right"></i>
     - else   
