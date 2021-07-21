@@ -1,0 +1,173 @@
+.group-wrapper {
+  background-color: rgb(253, 246, 223);
+  font-family: 'Noto Sans JP', serif;
+  padding-bottom: 40px;
+// --- 見出し ---
+  .group-heading-wrapper {
+    .group-heading {
+      font-size: 40px;
+      font-weight: 900;
+      padding: 30px 40px 10px 40px;
+      border-bottom: 1px solid red;
+    }
+  }
+// --- グループ招待リスト ---
+  .group-invitations-wrapper {
+    margin: 20px 70px 90px 70px;
+    .group-invitations-title {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+    .group-invitations {
+      border: 2px solid rgb(43, 194, 43);
+      border-radius: 20px;
+    }
+    .group-invitation {
+      display: flex;
+      justify-content: space-between;
+      margin: 0 15px;
+      padding: 20px 50px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    }
+    .group-info {
+      font-size: 18px;
+    }
+    .group-buttons {
+      margin-right: 20px;
+      a {
+        border-radius: 10px;
+        color: white;
+        padding: 5px 10px;
+      }
+      .join {
+        background-color: rgba(0, 0, 255, 0.7);
+      }
+      .decline {
+        background-color: rgba(255, 0, 0, 0.8);
+        margin-left: 40px;
+      }
+    }
+  }
+
+// --- グループ一覧 ---
+  .groups-list-wrapper {
+    margin: 20px 70px;
+    .groups-list-title {
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+    .groups-list-columns {
+      font-size: 20px;
+      display: flex;
+      justify-content: space-around;
+      text-align: center;
+      border-bottom: 2px solid rgba(255, 136, 0, 0.8);
+
+      .add-recipe-column {
+        width: 15%;
+      }
+      .group-name-column {
+        width: 30%;
+        border-left: 2px solid rgba(255, 136, 0, 0.8);
+        padding: 10px 0 20px 0;
+      }
+      .group-member-column {
+        width: 20%;
+        border-left: 2px solid rgba(255, 136, 0, 0.8);
+        padding: 10px 0 20px 0;
+      }
+      .group-owner-column {
+        width: 20%;
+        border-left: 2px solid rgba(255, 136, 0, 0.8);
+        padding: 10px 0 20px 0;
+      }
+      .group-buttons-column {
+        width: 15%;
+        border-left: 2px solid rgba(255, 136, 0, 0.8);
+        padding: 10px 0 20px 0;
+      }
+    }
+    
+    .groups {
+      .group {
+        display: flex;
+        justify-content: space-around;
+      
+        .add-recipe {
+          width: 15%;
+          margin-top: 20px;
+          border-bottom: 2px solid rgba(255, 136, 0, 0.5);
+          .add-recipe-btn {
+            padding: 3px 2px;
+            background-color: rgba(255, 128, 70, 0.8);
+            border-radius: 10px;
+            box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+          }
+        }
+        &-name {
+          width: 30%;
+          border-left: 2px solid rgba(255, 136, 0, 0.8);
+          border-bottom: 2px solid rgba(255, 136, 0, 0.5);
+          padding: 10px 0 20px 0px;
+          &-link {
+            display: inline-block;
+            margin: 13px 0 0 20px;
+          }
+        }
+        &-member {
+          width: 20%;
+          border-left: 2px solid rgba(255, 136, 0, 0.8);
+          border-bottom: 2px solid rgba(255, 136, 0, 0.5);
+          padding: 10px 0 20px 0;
+          &-num {
+            margin: 13px 0 0 20px;
+          }
+        }
+        &-owner {
+          width: 20%;
+          border-left: 2px solid rgba(255, 136, 0, 0.8);
+          border-bottom: 2px solid rgba(255, 136, 0, 0.5);
+          padding: 10px 0 20px 0;
+          &-name {
+            margin: 13px 0 0 20px;
+          }
+        }
+        &-buttons {
+          width: 15%;
+          border-left: 2px solid rgba(255, 136, 0, 0.8);
+          border-bottom: 2px solid rgba(255, 136, 0, 0.5);
+          padding: 10px 0 20px 0;
+          a {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 10px;
+            box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+            margin: 10px 0 0 15px;
+          } 
+          .edit {
+            background-color:rgba(253, 220, 74, 0.9);
+          }
+          .destroy {
+            background-color:rgba(255, 71, 71, 0.8);
+          }
+        }
+      }
+    }
+  }
+
+  // グループ作成ボタン
+  .new-group-btn-wrapper {
+    padding: 60px 0;
+    text-align: center;
+    .new-group-btn{
+      font-size: 25px;
+      width: 300px;
+      margin: 0 0 40px;
+      padding: 15px 30px;
+      background-color: rgba(70, 255, 126, 0.6);
+      border-radius: 15px;
+      box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+    }
+  }
+
+}

@@ -17,7 +17,7 @@
     .groups-list-wrapper
       .groups-list-title
         h2 グループ一覧
-      .group-list-columns
+      .groups-list-columns
         .add-recipe-column
         .group-name-column
           h3 グループ名
@@ -27,18 +27,21 @@
           h3 オーナー
         .group-buttons-column
       ul.groups
-        li.group
-          .add-recipe
-            a.add-recipe-btn href="#" レシピを追加する
-          .group-name
-            a.group-name-link href="#" 
-              = "グループ１"
-          .group-member
-            = "１１人"
-          .group-owner
-            = "オーナーさん"
-          .group-buttons
-            a.edit herf="#" 編集する
-            a.destroy href="#" 削除する
+        - 5.times do
+          li.group
+            .add-recipe
+              a.add-recipe-btn href="#" レシピを追加する
+            .group-name
+              a.group-name-link href="#" 
+                = "グループ１"
+            .group-member
+              .group-member-num
+                = "１１人"
+            .group-owner
+              .group-owner-name
+                = "オーナーさん"
+            .group-buttons
+              a.edit herf="#" 編集
+              a.destroy href="#" 削除
     .new-group-btn-wrapper
       a.new-group-btn href="#" グループを作成する
