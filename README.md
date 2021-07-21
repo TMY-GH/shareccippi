@@ -11,10 +11,16 @@
 ### Association
 - has_one :profile
 - has_many :recipes
+
 - has_many :user_likes
 - has_many :favorites, through: :user_likes, source: :recipe
+
 - has_many :user_groups
 - has_many :groups, through: :user_groups
+- has_many :own_groups, source: :groups
+- has_many :group_invitations
+- has_many :invited_groups, through: :group_invitations
+
 - has_many :reviews
 
 #### その他
@@ -102,12 +108,16 @@ Active_storageで画像のの追加<br>
 | Column                   | Type          | Option                         |
 |--------------------------|---------------|--------------------------------|
 | name                     | string        | null: false                    |
+| user                     | references    | null: false, foreign_key: true |
 
 ### Association
 - has_many :user_groups
 - has_many :users, through: :user_groups
 - has_many :group_likes
 - has_many :recipes, through: :group_likes
+- belongs_to :owner, source: :user
+- has_many :group_invitations
+- has_many :invited_users, through: :group_invitations
 *****
 
 ## user_groupテーブル
@@ -121,6 +131,16 @@ Active_storageで画像のの追加<br>
 - belongs_to :group
 *****
 
+## group_invitationテーブル
+| Column                   | Type          | Option                         |
+|--------------------------|---------------|--------------------------------|
+| user                     | references    | null: false, foreign_key: true |
+| group                    | references    | null: false, foreign_key: true |
+
+### Association
+- belongs_to :user
+- belongs_to :group
+*****
 ## user_likeテーブル
 | Column                   | Type          | Option                         |
 |--------------------------|---------------|--------------------------------|

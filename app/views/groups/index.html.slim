@@ -1,0 +1,47 @@
+.group-wrapper
+  .container
+    .group-heading-wrapper
+      .group-heading
+        h1 グループ
+    .group-invitations-wrapper
+      .group-invitations-title
+        h2 グループの招待リスト
+      ul.group-invitations
+        - 3.times do
+          li.group-invitation
+            .group-info
+              = "グループ１に招待されています"
+            .group-buttons
+              a.join href="#" 参加する
+              a.decline href="#" 断る
+    .groups-list-wrapper
+      .groups-list-title
+        h2 グループ一覧
+      .groups-list-columns
+        .add-recipe-column
+        .group-name-column
+          h3 グループ名
+        .group-member-column
+          h3 参加人数
+        .group-owner-column
+          h3 オーナー
+        .group-buttons-column
+      ul.groups
+        - 5.times do
+          li.group
+            .add-recipe
+              a.add-recipe-btn href="#" レシピを追加する
+            .group-name
+              a.group-name-link href="#" 
+                = "グループ１"
+            .group-member
+              .group-member-num
+                = "１１人"
+            .group-owner
+              .group-owner-name
+                = "オーナーさん"
+            .group-buttons
+              a.edit herf="#" 編集
+              a.destroy href="#" 削除
+    .new-group-btn-wrapper
+      a.new-group-btn href="#" グループを作成する
