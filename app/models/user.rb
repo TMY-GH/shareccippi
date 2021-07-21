@@ -4,7 +4,9 @@ class User < ApplicationRecord
   has_many :user_likes
   has_many :favorites, through: :user_likes, source: :recipe
   has_many :reviews
-
+  has_many :user_groups
+  has_many :groups, through: :user_groups
+  has_many :own_groups, source: :groups
   
 # --- バリデーション ---
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable,
