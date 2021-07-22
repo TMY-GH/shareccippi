@@ -3,17 +3,18 @@
     .group-heading-wrapper
       .group-heading
         h1 グループ
-    .group-invitations-wrapper
-      .group-invitations-title
-        h2 グループの招待リスト
-      ul.group-invitations
-        - 3.times do
-          li.group-invitation
-            .group-info
-              = "グループ１に招待されています"
-            .group-buttons
-              a.join href="#" 参加する
-              a.decline href="#" 断る
+    - unless @invited_groups.blank?
+      .group-invitations-wrapper
+        .group-invitations-title
+          h2 グループの招待リスト
+        ul.group-invitations
+          - @invited_groups.each do |invited_group|
+            li.group-invitation
+              .group-info
+                = "#{invited_group.name}に招待されています"
+              .group-buttons
+                a.join href="#" 参加する
+                a.decline href="#" 断る
     .groups-list-wrapper
       .groups-list-title
         h2 グループ一覧
@@ -27,21 +28,22 @@
           h3 オーナー
         .group-buttons-column
       ul.groups
-        - 5.times do
-          li.group
-            .add-recipe
-              a.add-recipe-btn href="#" レシピを追加する
-            .group-name
-              a.group-name-link href="#" 
-                = "グループ１"
-            .group-member
-              .group-member-num
-                = "１１人"
-            .group-owner
-              .group-owner-name
-                = "オーナーさん"
-            .group-buttons
-              a.edit herf="#" 編集
-              a.destroy href="#" 削除
+        - unless @groups.blank?
+          - @groups.each do |group|
+            li.group
+              .add-recipe
+                a.add-recipe-btn href="#" レシピを追加する
+              .group-name
+                a.group-name-link href="#" 
+                  = group.name
+              .group-member
+                .group-member-num
+                  = group.users.length
+              .group-owner
+                .group-owner-name
+                  = "#{group.users[0].nick_name}さん"
+              .group-buttons
+                a.edit herf="#" 編集
+                a.destroy href="#" 削除
     .new-group-btn-wrapper
       = link_to "グループを作成する", new_group_path, class: "new-group-btn"

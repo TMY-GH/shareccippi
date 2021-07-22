@@ -3,7 +3,7 @@ class GroupForm
   include ActiveModel::Validations
   include ActiveModel::Attributes
 
-  attr_accessor :group_name, :user_names
+  attr_accessor :group_name, :user_names, :current_user_id
 
 # Validation
   with_options presence: true do
@@ -16,10 +16,12 @@ class GroupForm
 # Method
   def save
     group = Group.create(name: group_name)
+    user = UserGroup.create(group_id: group.id, user_id: current_user_id)
     user_names.each do |user_name|
       user = User.find_by(user_name: user_name)
       GroupInvitation.create(user_id: user.id, group_id: group.id)
     end
+
   end
 
 end
