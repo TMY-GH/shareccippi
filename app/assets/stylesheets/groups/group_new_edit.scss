@@ -1,0 +1,85 @@
+.new-group-wrapper {
+  // background-image: url("https://pakutaso.cdn.rabify.me/shared/img/thumb/gori0I9A3129072103951.jpg.webp?d=1420");
+  // background-size: cover;
+  background-color: #fae5d0;
+  font-family: 'Noto Sans JP', serif;
+  padding: 40px 0;
+
+  .new-group-heading-wrapper {
+    padding: 40px 0 20px 40px;
+    border-bottom: 1px solid red;
+    font-size: 40px;
+  }
+
+  .group-form {
+    padding: 40px;
+  }
+
+  .group-name-wrapper {
+    padding: 0 40px;
+  }
+  .group-name-heading {
+    font-size: 30px;
+    margin-bottom: 30px;
+  }
+  .group-name-form {
+    font-size: 25px;
+    border-bottom: 1px solid rgb(255, 181, 71);
+    padding: 7px 40px;
+  }
+  #group_form_group_name {
+    width: 100%;
+  }
+
+  .invite-user-wrapper {
+    margin-top: 80px;
+    padding: 0 40px;
+  }
+  .invite-user-heading {
+    font-size: 30px;
+    margin-bottom: 30px;
+  }
+  .invite-user {
+    padding: 20px 40px;
+  }
+  #group_form_user_id {
+    width: 80%;
+    background-color: rgb(255, 181, 71);
+    border-radius: 10px;
+    padding: 20px;
+  }
+  // +ボタン
+  .fa-plus-square {
+    display: block;
+    margin-left: 80px;
+    font-size: 40px;
+    color: red;
+    cursor: pointer;
+  }
+  // xボタン
+  .fa-times-circle {
+    color: rgba(26, 23, 23, 0.7);
+    cursor: pointer;
+    font-size: 40px;
+    position: relative;
+    top: 10px;
+    left: 10px;
+  }
+
+  .submit-btn-wrapper {
+    text-align: center;
+    margin: 60px 0 20px;
+  }
+  .submit-btn {
+    width: 300px;
+    padding: 15px 0;
+    background-color: rgb(255, 128, 70);
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 40px;
+    text-align: center;
+    font-size: 35px;
+    font-weight: 900;
+  }
+
+}

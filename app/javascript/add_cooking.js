@@ -16,7 +16,6 @@ const add_cooking = () => {
       remove_button.classList.add("fas", "fa-times-circle", "remove_btn");
       remove_button.setAttribute("style", "cursor:pointer;");
       const parent = document.getElementById(`cooking_${cooking_num}`);
-      console.log(parent);
       parent.appendChild(remove_button);
       remove_button.addEventListener('click', ()=>{
         parent.remove();

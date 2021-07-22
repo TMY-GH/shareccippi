@@ -20,3 +20,6 @@ ja:
         ingredient_ids: 材料
         amounts: 材料の量
         difficulty: 調理難易度
+      group_form:
+        group_name: グループ名
+        user_names: 招待するユーザー
