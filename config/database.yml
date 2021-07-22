@@ -52,6 +52,3 @@ production:
   database: shareccippi_production
   username: shareccippi
   password: <%= ENV['SHARECCIPPI_DATABASE_PASSWORD'] %>
-  adapter: postgresql
-  encoding: unicode
-  pool: 5
