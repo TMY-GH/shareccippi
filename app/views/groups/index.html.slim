@@ -13,8 +13,8 @@
               .group-info
                 = "#{invited_group.name}に招待されています"
               .group-buttons
-                a.join href="#" 参加する
-                a.decline href="#" 断る
+                = link_to "参加する", group_invitations_path(invited_group), method: :post, class: "join"
+                = link_to "断る", group_invitation_path(invited_group), method: :delete, class: "decline"
     .groups-list-wrapper
       .groups-list-title
         h2 グループ一覧
