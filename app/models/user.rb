@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :user_groups
   has_many :groups, through: :user_groups
-  has_many :own_groups, source: :group
+  has_many :own_groups, through: :user_groups, source: :group
   
 # --- バリデーション ---
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable,
