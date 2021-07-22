@@ -14,6 +14,7 @@ require("../search_ingredients")
 require("../animation_like")
 require("../preview")
 require("../select_publish")
+require("../add_invite_user")
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)

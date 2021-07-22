@@ -27,7 +27,7 @@
     border-bottom: 1px solid rgb(255, 181, 71);
     padding: 7px 40px;
   }
-  #group_name {
+  #group_form_group_name {
     width: 100%;
   }
 
@@ -42,7 +42,7 @@
   .invite-user {
     padding: 20px 40px;
   }
-  #user_id {
+  #group_form_user_id {
     width: 80%;
     background-color: rgb(255, 181, 71);
     border-radius: 10px;
@@ -60,6 +60,10 @@
   .fa-times-circle {
     color: rgba(26, 23, 23, 0.7);
     cursor: pointer;
+    font-size: 40px;
+    position: relative;
+    top: 10px;
+    left: 10px;
   }
 
   .submit-btn-wrapper {

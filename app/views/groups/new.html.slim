@@ -4,7 +4,8 @@
       .new-group-heading
         h1 グループの作成
 
-    = form_with model: @group_form, url: groups_path, class: "group-form" do |f|
+    = form_with model: @group_form, url: groups_path, local: true, class: "group-form" do |f|
+      = render "shared/error_messages", model: f.object
       .group-name-wrapper
         .group-name-heading
           h2 グループ名
@@ -13,9 +14,14 @@
       .invite-user-wrapper
         .invite-user-heading
           h2 ユーザーをグループに招待する
-        .invite-user
-          = f.text_field :user_id, placeholder: "招待したいユーザーのIDを入力してください", name: "group_form[user_names][]"
+        // エラー時に入力した値を保持
+        - unless @group_form.user_names.blank?
+          -  @group_form.user_names.each do |user_name|
+            = render partial: "user_name", locals: { f: f, user_name: user_name}
+        - else
+          .invite-user
+            = f.text_field :user_id, placeholder: "招待したいユーザーのIDを入力してください", name: "group_form[user_names][]"
         #invite-user-space
-        <i class="fas fa-plus-square" id="add_cooking_btn"></i>
+        <i class="fas fa-plus-square" id="add_invite_user_btn"></i>
       .submit-btn-wrapper
         = f.submit "グループ作成", class: "submit-btn"
