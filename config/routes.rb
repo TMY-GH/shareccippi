@@ -27,5 +27,5 @@ Rails.application.routes.draw do
       post 'my_recipes'
     end
   end
-  resources :groups, only: :index
+  resources :groups, only: [:index, :new, :create]
 end

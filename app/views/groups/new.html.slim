@@ -1,0 +1,21 @@
+.new-group-wrapper
+  .container
+    .new-group-heading-wrapper
+      .new-group-heading
+        h1 グループの作成
+
+    = form_with model: @group_form, url: groups_path, class: "group-form" do |f|
+      .group-name-wrapper
+        .group-name-heading
+          h2 グループ名
+        .group-name-form 
+          = f.text_field :group_name, placeholder: "グループを入力してください", name: "group_form[group_name]"
+      .invite-user-wrapper
+        .invite-user-heading
+          h2 ユーザーをグループに招待する
+        .invite-user
+          = f.text_field :user_id, placeholder: "招待したいユーザーのIDを入力してください", name: "group_form[user_names][]"
+        #invite-user-space
+        <i class="fas fa-plus-square" id="add_cooking_btn"></i>
+      .submit-btn-wrapper
+        = f.submit "グループ作成", class: "submit-btn"

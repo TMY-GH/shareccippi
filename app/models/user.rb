@@ -6,6 +6,8 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :user_groups
   has_many :groups, through: :user_groups
+  has_many :group_invitations
+  has_many :invited_groups, through: :group_invitations, source: :group
   
 # --- バリデーション ---
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable,
