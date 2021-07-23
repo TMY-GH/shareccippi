@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_group, only: [:edit, :update, :destroy]
+  before_action :set_group, only: [:show, :edit, :update, :destroy]
   
   def index
     user = User.find(current_user.id)
@@ -8,6 +8,10 @@ class GroupsController < ApplicationController
     @groups = user.groups.includes(:users)
   end
   
+  def show
+    @recipes = Recipe.where(publish_id: 1)
+  end
+
   def new
     @group_form = GroupForm.new
   end

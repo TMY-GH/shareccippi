@@ -1,0 +1,29 @@
+.group-show-wrapper
+  .container
+    .group-show-heading-wrapper
+      .group-show-heading
+        h1 グループ名
+      .calender-link-wrapper
+        a.calender-link href="#" 
+          <i class="far fa-calendar-alt"></i>カレンダーレシピへ
+    .group-member-list-wrapper
+      .group-member-heading
+        .group-member-title
+          h2 メンバー
+        .group-member-num-wrapper
+          .group-member-num
+            = "4人"
+      ul.group-member-list
+        - 5.times do
+          li.group-member
+            = "テストさん"
+            
+    #render_group_recipe
+      .group-recipe-heading-wrapper
+        .group-recipe-heading
+          h2 グループレシピ
+        .add-group-recipe-btn-wrapper
+          a.add-group-recipe href="#" レシピを追加する
+      .group-recipes-wrapper
+        .recipes
+          = render partial: "recipes/recipe", collection: @recipes

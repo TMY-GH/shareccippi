@@ -34,7 +34,7 @@
               .add-recipe
                 a.add-recipe-btn href="#" レシピを追加する
               .group-name
-                a.group-name-link href="#" 
+                = link_to group_path(group), class: "group-name-link" do 
                   = group.name
               .group-member
                 .group-member-num
