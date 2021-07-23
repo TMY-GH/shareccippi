@@ -1,0 +1,11 @@
+#destroy_modal
+  .modal-background
+    .modal-wrapper
+      .modal-container
+        .modal-message
+          h1 本当にこのグループを<br>削除しますか？
+        .modal-buttons
+          = link_to group_path(group), class: "modal-button yes", method: :delete do
+            = "はい"
+          .modal-button.no id="destroy_modal_off"
+            p いいえ
