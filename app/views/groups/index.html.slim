@@ -41,9 +41,13 @@
                   = group.users.length
               .group-owner
                 .group-owner-name
-                  = "#{group.users[0].nick_name}さん"
+                  = "#{group.owner.nick_name}さん"
               .group-buttons
-                a.edit herf="#" 編集
-                a.destroy href="#" 削除
+                = link_to "編集", edit_group_path(group), class: "edit"
+                - if current_user.id == group.owner.id
+                  p.destroy style="cursor:pointer;" id="show_destroy_modal"
+                    | 削除する
+                  = render partial: "destroy", locals: { group: group }
     .new-group-btn-wrapper
       = link_to "グループを作成する", new_group_path, class: "new-group-btn"
+

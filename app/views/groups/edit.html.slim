@@ -1,0 +1,25 @@
+// グループ作成とほぼ一緒
+.new-group-wrapper
+  .container
+    .new-group-heading-wrapper
+      .new-group-heading
+        h1 グループの編集
+
+    = form_with model: @group_form, url: group_path, method: :put, local: true, class: "group-form" do |f|
+      = render "shared/error_messages", model: f.object
+      .group-name-wrapper
+        .group-name-heading
+          h2 グループ名
+        .group-name-form 
+          = f.text_field :group_name, placeholder: "グループを入力してください", name: "group_form[group_name]"
+      .invite-user-wrapper
+        .invite-user-heading
+          h2 ユーザーをグループに追加で招待する
+        // エラー時に入力した値を保持
+        - unless @group_form.user_names.blank?
+          -  @group_form.user_names.each do |user_name|
+            = render partial: "user_name", locals: { f: f, user_name: user_name}
+        #invite-user-space
+        <i class="fas fa-plus-square" id="add_invite_user_btn"></i>
+      .submit-btn-wrapper
+        = f.submit "グループ作成", class: "submit-btn"

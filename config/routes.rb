@@ -27,7 +27,7 @@ Rails.application.routes.draw do
       post 'my_recipes'
     end
   end
-  resources :groups, only: [:index, :new, :create] do
+  resources :groups, only: [:index, :new, :create, :edit, :update, :destroy] do
     member do
       resources :group_invitations, only: [:create, :destroy]
     end
