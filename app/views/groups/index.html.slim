@@ -43,7 +43,7 @@
                 .group-owner-name
                   = "#{group.owner.nick_name}さん"
               .group-buttons
-                a.edit herf="#" 編集
+                = link_to "編集", edit_group_path(group), class: "edit"
                 - if current_user.id == group.owner.id
                   = link_to "削除", group_path(group), method: :delete, class: "destroy"
     .new-group-btn-wrapper
