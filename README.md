@@ -17,6 +17,8 @@
 
 - has_many :user_groups
 - has_many :groups, through: :user_groups
+- has_many :group_owners
+- has_many :own_groups, through: :group_owners, source: :group
 - has_many :group_invitations
 - has_many :invited_groups, through: :group_invitations
 
@@ -115,6 +117,8 @@ Active_storageで画像のの追加<br>
 - has_many :recipes, through: :group_likes
 - has_many :group_invitations
 - has_many :invited_users, through: :group_invitations, source: :user
+- has_one :group_owner
+- has_one :owner, through: :group_owner, source: :user
 *****
 
 ## user_groupテーブル
@@ -122,6 +126,17 @@ Active_storageで画像のの追加<br>
 |--------------------------|---------------|--------------------------------|
 | user_id                  | references    | null: false, foreign_key: true |
 | group_id                 | references    | null: false, foreign_key: true |
+
+### Association
+- belongs_to :user
+- belongs_to :group
+*****
+
+## group_ownerテーブル
+| Column                   | Type          | Option                         |
+|--------------------------|---------------|--------------------------------|
+| user                     | references    | null: false, foreign_key: true |
+| group                    | references    | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
@@ -138,6 +153,7 @@ Active_storageで画像のの追加<br>
 - belongs_to :user
 - belongs_to :group
 *****
+
 ## user_likeテーブル
 | Column                   | Type          | Option                         |
 |--------------------------|---------------|--------------------------------|

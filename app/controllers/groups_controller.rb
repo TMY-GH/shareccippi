@@ -4,7 +4,7 @@ class GroupsController < ApplicationController
   def index
     user = User.find(current_user.id)
     @invited_groups = user.invited_groups
-    @groups = user.groups
+    @groups = user.groups.includes(:users)
   end
   
   def new
@@ -19,6 +19,12 @@ class GroupsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    group = Group.find(params[:id])
+    group.destroy
+    redirect_to groups_path
   end
 
   private

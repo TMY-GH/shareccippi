@@ -41,9 +41,10 @@
                   = group.users.length
               .group-owner
                 .group-owner-name
-                  = "#{group.users[0].nick_name}さん"
+                  = "#{group.owner.nick_name}さん"
               .group-buttons
                 a.edit herf="#" 編集
-                a.destroy href="#" 削除
+                - if current_user.id == group.owner.id
+                  = link_to "削除", group_path(group), method: :delete, class: "destroy"
     .new-group-btn-wrapper
       = link_to "グループを作成する", new_group_path, class: "new-group-btn"

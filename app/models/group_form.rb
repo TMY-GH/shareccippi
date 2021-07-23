@@ -16,6 +16,7 @@ class GroupForm
 # Method
   def save
     group = Group.create(name: group_name)
+    GroupOwner.create(group_id: group.id, user_id: current_user_id)
     user = UserGroup.create(group_id: group.id, user_id: current_user_id)
     user_names.each do |user_name|
       user = User.find_by(user_name: user_name)
