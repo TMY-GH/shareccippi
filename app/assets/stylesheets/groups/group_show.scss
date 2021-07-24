@@ -73,3 +73,17 @@
   border-radius: 20px;
   padding: 30px 0;
 }
+
+.exit-group-btn-wrapper {
+  text-align: center;
+  margin: 100px 0;
+
+  .exit-group-btn {
+    font-size: 30px;
+    display: inline;
+    background-color: rgba(255, 0, 0, 0.8);
+    border-radius: 20px;
+    color: rgb(255, 255, 255);
+    padding: 15px 30px;
+  }
+}

@@ -2,7 +2,7 @@
   .container
     .group-show-heading-wrapper
       .group-show-heading
-        h1 グループ名
+        = @group.name
       .calender-link-wrapper
         a.calender-link href="#" 
           <i class="far fa-calendar-alt"></i>カレンダーレシピへ
@@ -12,11 +12,11 @@
           h2 メンバー
         .group-member-num-wrapper
           .group-member-num
-            = "4人"
+            = "#{@group.users.length}人"
       ul.group-member-list
-        - 5.times do
+        - @group.users.each do |user|
           li.group-member
-            = "テストさん"
+            = "#{user.nick_name}さん"
             
     #render_group_recipe
       .group-recipe-heading-wrapper
@@ -26,4 +26,9 @@
           a.add-group-recipe href="#" レシピを追加する
       .group-recipes-wrapper
         .recipes
-          = render partial: "recipes/recipe", collection: @recipes
+          / = render partial: "recipes/recipe", collection: @recipes
+
+    .exit-group-btn-wrapper
+      p.exit-group-btn id="show_destroy_modal" style="cursor:pointer;"
+        | 脱退する
+      = render partial: "exit", locals: { group: @group }

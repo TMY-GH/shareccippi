@@ -29,6 +29,8 @@ Rails.application.routes.draw do
   end
   resources :groups do
     member do
+      # グループから退出
+      delete 'exit'
       resources :group_invitations, only: [:create, :destroy]
     end
   end
