@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_group, only: [:show, :edit, :update, :destroy]
+  before_action :set_group, only: [:show, :edit, :update, :destroy, :exit]
   
   def index
     user = User.find(current_user.id)
@@ -42,6 +42,17 @@ class GroupsController < ApplicationController
 
   def destroy
     @group.destroy
+    redirect_to groups_path
+  end
+
+  def exit
+    user_group = UserGroup.find_by(user_id: current_user.id, group_id: @group.id)
+    user_group.destroy
+    # オーナーが脱退した際に次のユーザーがオーナーに自動でなります。
+    if @group.owner.id == current_user.id
+      GroupOwner.find_by(user_id: current_user.id, group_id: @group.id).destroy
+      GroupOwner.create(user_id: @group.users[0].id, group_id: @group.id)
+    end
     redirect_to groups_path
   end
 
