@@ -51,7 +51,11 @@ class GroupsController < ApplicationController
     # オーナーが脱退した際に次のユーザーがオーナーに自動でなります。
     if @group.owner.id == current_user.id
       GroupOwner.find_by(user_id: current_user.id, group_id: @group.id).destroy
-      GroupOwner.create(user_id: @group.users[0].id, group_id: @group.id)
+      if @group.users[0]
+        GroupOwner.create(user_id: @group.users[0].id, group_id: @group.id)
+      else
+        @group.destroy
+      end
     end
     redirect_to groups_path
   end
