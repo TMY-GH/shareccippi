@@ -48,6 +48,7 @@ class GroupsController < ApplicationController
   def exit
     user_group = UserGroup.find_by(user_id: current_user.id, group_id: @group.id)
     user_group.destroy
+    # オーナーが脱退した際に次のユーザーがオーナーに自動でなります。
     if @group.owner.id == current_user.id
       GroupOwner.find_by(user_id: current_user.id, group_id: @group.id).destroy
       GroupOwner.create(user_id: @group.users[0].id, group_id: @group.id)
