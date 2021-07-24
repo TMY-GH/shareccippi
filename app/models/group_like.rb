@@ -1,0 +1,3 @@
+class GroupLike < ApplicationRecord
+  
+end
