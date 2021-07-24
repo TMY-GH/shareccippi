@@ -1,0 +1,75 @@
+.group-show-wrapper {
+  background-color: rgb(253, 246, 223);
+  font-family: 'Noto Sans JP', serif;
+  padding: 50px;
+}
+
+.group-show-heading-wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 50px;
+  border-bottom: 1px solid red;
+  font-weight: 900;
+
+  .group-show-heading {
+    font-size: 40px;
+  }
+  .calender-link-wrapper {
+    font-size: 30px;
+    color: rgba(255, 0, 0, 0.8);
+  }
+}
+
+.group-member-list-wrapper {
+  padding: 40px 80px;
+  font-weight: 100;
+
+  .group-member-heading {
+    display: flex;
+  }
+  .group-member-title {
+    font-size: 40px;
+  }
+  .group-member-num-wrapper {
+    margin-left: 100px;
+    font-size: 30px;
+  }
+
+  .group-member-list {
+    margin: 15px 0;
+    padding: 15px 20px;
+    border: 7px dotted rgba(58, 255, 58, 0.6);
+    border-radius: 40px;
+    .group-member {
+      list-style-type: decimal;
+      list-style-position: inside;
+      font-size: 20px;
+      padding: 5px 5px 5px 30px;
+    }
+  }
+
+}
+
+.group-recipe-heading-wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 100px 40px;
+
+  .group-recipe-heading {
+    font-size: 35px;
+  }
+  .add-group-recipe-btn-wrapper {
+    margin-top: 10px;
+  }
+  .add-group-recipe {
+    background-color: rgba(255, 167, 35, 0.6);
+    border-radius: 20px;
+    font-size: 20px;
+    padding: 10px 15px;
+  }
+}
+.group-recipes-wrapper {
+  border: 10px dotted rgb(112, 158, 255);
+  border-radius: 20px;
+  padding: 30px 0;
+}
