@@ -9,7 +9,7 @@ class GroupsController < ApplicationController
   end
   
   def show
-    @recipes = Recipe.where(publish_id: 1)
+    @recipes = @group.recipes.includes(:reviews)
   end
 
   def new

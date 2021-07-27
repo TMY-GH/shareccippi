@@ -22,6 +22,7 @@ class GroupLikesController < ApplicationController
   def destroy
   end
   
+  
   private
 
   def set_group
@@ -29,7 +30,9 @@ class GroupLikesController < ApplicationController
   end
 
   def set_liked_recipes
-    @recipes = current_user.favorites.order("created_at DESC")
+    favorites = current_user.favorites.order("created_at DESC")
+    liked_recipe = @group.recipes
+    @recipes = favorites - liked_recipe
   end
 
 end
