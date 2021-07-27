@@ -15,6 +15,12 @@
     font-size: 35px;
   }
 
+  &-no-recipe {
+    color: rgba(255, 0, 0, 0.7);
+    font-size: 25px;
+    text-align: center;
+  }
+
   .recipes {
     padding: 20px 10px;
     border: 10px dotted rgba(56, 255, 145, 0.6);

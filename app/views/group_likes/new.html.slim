@@ -4,11 +4,15 @@
       h1 レシピの追加
     .group-like-new-heading
       = "#{@group.name}にレシピを追加する"
-    = form_with model: @group_like, url: group_group_likes_path(@group) do |f|
-      .recipes
-        - i = 0
-        - @recipes.each do |recipe|
-          = render partial: "checkbox_recipe", locals: { f: f, recipe: recipe, i: i }
-          - i += 1
-      .add-group-like-btn-wrapper
-        input type="submit" class="add-group-like-btn" value="レシピを追加"
+    - if @recipes.blank?
+      .group-like-new-no-recipe
+        h2 お気に入りのレシピがありません
+    - else
+      = form_with model: @group_like, url: group_group_likes_path(@group) do |f|
+        .recipes
+          - i = 0
+          - @recipes.each do |recipe|
+            = render partial: "checkbox_recipe", locals: { f: f, recipe: recipe, i: i }
+            - i += 1
+        .add-group-like-btn-wrapper
+          input type="submit" class="add-group-like-btn" value="レシピを追加"
