@@ -26,7 +26,7 @@
           = link_to "レシピを追加する", new_group_group_like_path(@group), class: "add-group-recipe"
       .group-recipes-wrapper
         .recipes
-          = render partial: "recipes/recipe", collection: @recipes
+          = render partial: "recipe", collection: @recipes, locals: { group: @group }
 
     .exit-group-btn-wrapper
       p.exit-group-btn id="show_destroy_modal" style="cursor:pointer;"

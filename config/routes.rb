@@ -38,7 +38,7 @@ Rails.application.routes.draw do
       delete 'exit'
       resources :group_invitations, only: [:create, :destroy]
     end
-    resources :group_likes, except: [:index, :show]
+    resources :group_likes, only: [:new, :create, :destroy]
   end
 
 end

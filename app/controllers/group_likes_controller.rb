@@ -1,7 +1,7 @@
 class GroupLikesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_group
-  before_action :set_liked_recipes
+  before_action :set_group, only: [:new, :create]
+  before_action :set_liked_recipes, only: [:new, :create]
 
   def new
     @group_like = GroupLike.new
@@ -20,9 +20,12 @@ class GroupLikesController < ApplicationController
   end
 
   def destroy
+    liked_recipe = GroupLike.find_by(group_id: params[:group_id], recipe_id: params[:id])
+    liked_recipe.destroy
+    redirect_to group_path(params[:group_id])
   end
   
-  
+
   private
 
   def set_group
