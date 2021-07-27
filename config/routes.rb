@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+
   devise_for :users
+
   root to: "recipes#index"
+
   resources :recipes do
     # 検索機能と検索結果予測
     collection do
@@ -17,6 +20,7 @@ Rails.application.routes.draw do
     # レシピ難易度評価機能
     resources :reviews, only: [:create, :destroy]
   end
+
   resources :users, only: :show do
     member do
       # マイページで自分のレシピの表示設定
@@ -27,11 +31,14 @@ Rails.application.routes.draw do
       post 'my_recipes'
     end
   end
+
   resources :groups do
     member do
       # グループから退出
       delete 'exit'
       resources :group_invitations, only: [:create, :destroy]
     end
+    resources :group_likes, except: [:index, :show]
   end
+
 end
