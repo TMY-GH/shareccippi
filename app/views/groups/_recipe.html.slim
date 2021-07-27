@@ -1,0 +1,29 @@
+.recipe
+  = link_to group_group_like_path(group, recipe), method: :delete do
+    <i class="fas fa-times-circle" style="cursor:pointer;"></i>
+  = link_to recipe_path(recipe) do
+    .recipe-image
+      = image_tag recipe.image
+    .recipe-name
+      = recipe.name
+    table
+      tbody
+        tr.recipe-serving
+          td.key 人数：
+          td.value
+            = recipe.serving.people
+            p.serving-unit 人
+        tr.recipe-time
+          td.key 調理時間：
+          td.value
+            = recipe.minute.time
+            p.minute-unit 分
+        tr.recipe-review
+          td.key 調理難易度：
+          td.value
+            - sum_reviews = 0
+            - recipe.reviews.each do |review|
+              - sum_reviews += review.difficulty.to_i
+            - average_reviews = sum_reviews / recipe.reviews.length
+            - average_reviews.times do
+              <i class="fas fa-carrot"></i>

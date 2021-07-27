@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_23_022626) do
+ActiveRecord::Schema.define(version: 2021_07_24_063243) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -49,6 +49,15 @@ ActiveRecord::Schema.define(version: 2021_07_23_022626) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["group_id"], name: "index_group_invitations_on_group_id"
     t.index ["user_id"], name: "index_group_invitations_on_user_id"
+  end
+
+  create_table "group_likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "group_id", null: false
+    t.bigint "recipe_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["group_id"], name: "index_group_likes_on_group_id"
+    t.index ["recipe_id"], name: "index_group_likes_on_recipe_id"
   end
 
   create_table "group_owners", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -140,6 +149,8 @@ ActiveRecord::Schema.define(version: 2021_07_23_022626) do
   add_foreign_key "cookings", "recipes"
   add_foreign_key "group_invitations", "groups"
   add_foreign_key "group_invitations", "users"
+  add_foreign_key "group_likes", "groups"
+  add_foreign_key "group_likes", "recipes"
   add_foreign_key "group_owners", "groups"
   add_foreign_key "group_owners", "users"
   add_foreign_key "recipe_ingredients", "ingredients"

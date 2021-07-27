@@ -11,9 +11,10 @@ class Recipe < ApplicationRecord
   has_many :user_likes, dependent: :destroy
   has_many :users, through: :user_likes
   
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
   
-  
+  has_many :group_likes, dependent: :destroy
+  has_many :groups, through: :group_likes
 # ActiveHash
   extend ActiveHash::Associations::ActiveRecordExtensions
     belongs_to :minute

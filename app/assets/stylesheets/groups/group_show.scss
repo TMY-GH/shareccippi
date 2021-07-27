@@ -2,6 +2,17 @@
   background-color: rgb(253, 246, 223);
   font-family: 'Noto Sans JP', serif;
   padding: 50px;
+
+   // グループのレシピ一覧
+  .recipe {
+    position: relative;
+    .fa-times-circle {
+      position: absolute;
+      color: red;
+      font-size: 40px;
+      right: 0;
+    }
+  }
 }
 
 .group-show-heading-wrapper {
@@ -86,4 +97,5 @@
     color: rgb(255, 255, 255);
     padding: 15px 30px;
   }
+
 }

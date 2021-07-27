@@ -32,7 +32,7 @@
           - @groups.each do |group|
             li.group
               .add-recipe
-                a.add-recipe-btn href="#" レシピを追加する
+                = link_to "レシピを追加する", new_group_group_like_path(group), class: "add-recipe-btn"
               .group-name
                 = link_to group_path(group), class: "group-name-link" do 
                   = group.name
