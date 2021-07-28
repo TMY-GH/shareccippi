@@ -74,6 +74,8 @@
         = f.select :difficulty, [['かんたん', 1], ['ふつう', 2], ['むずかしい', 3]]
       
       .field.recipe-caution
-        label その他：
+        label その他(注意書きなど)：
+        = f.text_area :caution, rows: "3", placeholder: "入力は任意です&#13;&#10;料理の際の注意事項や材料リストに使う材料がない場合に記載してください".html_safe
+
       .submit-wrapper
         = f.submit "レシピを作る", class:"submit"

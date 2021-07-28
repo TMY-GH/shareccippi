@@ -3,9 +3,9 @@ class RecipeForm
   include ActiveModel::Validations
   include ActiveModel::Attributes
 
-  attr_accessor :recipe_name, :recipe_image, :minute, :serving, :publish, :price, :user_id,
+  attr_accessor :recipe_name, :recipe_image, :minute, :serving, :publish, :price, :user_id, :caution,
                 :ingredient_ids, :amounts, :recipe_id,
-                :contents, :caution,
+                :contents,
                 :difficulty
 
 # Validation
@@ -47,7 +47,7 @@ class RecipeForm
 # --- Method ----------------------------
 
   def save
-    recipe = Recipe.create(name: recipe_name, image: recipe_image, minute_id: minute, serving_id: serving, publish_id: publish, price: price, user_id: user_id)
+    recipe = Recipe.create(name: recipe_name, image: recipe_image, minute_id: minute, serving_id: serving, publish_id: publish, price: price, caution: caution, user_id: user_id)
     i = 0
     # 材料と量を複数のレコードで保存
     ingredient_ids.each do |ingredient_id|
@@ -68,9 +68,9 @@ class RecipeForm
   def update
     recipe = Recipe.find(recipe_id)
     if recipe_image.blank?
-      recipe.update(name: recipe_name, minute_id: minute, serving_id: serving, publish_id: publish, price: price, user_id: user_id)
+      recipe.update(name: recipe_name, minute_id: minute, serving_id: serving, publish_id: publish, price: price, caution: caution, user_id: user_id)
     else
-      recipe.update(name: recipe_name, image: recipe_image, minute_id: minute, serving_id: serving, publish_id: publish, price: price, user_id: user_id)
+      recipe.update(name: recipe_name, image: recipe_image, minute_id: minute, serving_id: serving, publish_id: publish, price: price, caution: caution, user_id: user_id)
     end
     # 材料の元データの削除
     ingredients = recipe.recipe_ingredients

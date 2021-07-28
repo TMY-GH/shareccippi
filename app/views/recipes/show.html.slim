@@ -6,8 +6,10 @@
       .like-button id="render_like_form"
         - if user_signed_in?
           = render partial: "like_form", locals: { recipe: @recipe }
+
     .image-wrapper
       = image_tag @recipe.image
+
     .details-wrapper
       .minute-wrapper
         span 調理時間
@@ -29,6 +31,12 @@
               //全角を半角に
               = @recipe.price.tr('０-９ａ-ｚＡ-Ｚ','0-9a-zA-Z')
             span 円
+    .caution-wrapper
+      .caution-heading
+        h2 注意書き
+      .caution
+        = @recipe.caution
+
     .ingredients-wrapper
       .ingredients-heading
         h2 材料
@@ -67,6 +75,7 @@
               - elsif @recipe.ingredients[i].name.include?("片")
                 span 片
               - i += 1
+
     .cookings-wrapper
       .cookings-heading
         h2 調理方法
@@ -75,6 +84,7 @@
           - @recipe.cookings.each do |cooking|
             li.cooking
               = cooking.content
+
     .buttons-wrapper
       - if user_signed_in? && current_user.id == @recipe.user_id
         .edit-button-wrapper
