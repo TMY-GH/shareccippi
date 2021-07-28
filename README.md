@@ -9,7 +9,6 @@
 | encrypted_password       | string        | null: false                    |
 
 ### Association
-- has_one :profile
 - has_many :recipes
 
 - has_many :user_likes
@@ -28,18 +27,6 @@
 Active_storageで画像のの追加<br>
 *****
 
-## Profileテーブル
-| Column                   | Type          | Option                         |
-|--------------------------|---------------|--------------------------------|
-| content                  | text          | null: false                    |
-| age                      | integer       | null: false                    |
-| gender_id                | integer       | null: false                    |
-| user                     | references    | null: false, foreign_key: true |
-
-### Association
-- belongs_to :user
-*****
-
 ## Recipeテーブル
 
 | Column                   | Type          | Option                         |
@@ -49,6 +36,7 @@ Active_storageで画像のの追加<br>
 | serving_id               | integer       | null: false                    |
 | publish_id               | integer       | null: false                    |
 | price                    | string        |                                |
+| caution                  | text          |                                |
 | user                     | references    | null: false, foreign_key: true |
 
 ### Association
@@ -95,7 +83,6 @@ Active_storageで画像のの追加<br>
 |--------------------------|---------------|--------------------------------|
 | content                  | text          | null: false                    |
 | recipe_id                | references    | null: false, foreign_key: true |
-| caution                  | text          |                                |
 
 ### Association
 - belongs_to :recipe

@@ -57,7 +57,6 @@
             = render partial: "cooking", locals: { f: f, content: content}
         - else
           = f.text_area :content, name: "recipe_form[contents][]", rows: "4"
-
         #cooking-space
         <i class="fas fa-plus-square" id="add_cooking_btn"></i>
 
@@ -74,5 +73,7 @@
         label 調理難易度：
         = f.select :difficulty, [['かんたん', 1], ['ふつう', 2], ['むずかしい', 3]]
       
+      .field.recipe-caution
+        label その他：
       .submit-wrapper
         = f.submit "レシピを作る", class:"submit"
