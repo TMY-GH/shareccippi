@@ -16,13 +16,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable,
           :authentication_keys => [:user_name]
 
-  with_options presence: true do
+  # case_sensitiveはRSpecテスト用
+  with_options presence: true, uniqueness: { case_sensitive: true } do
     validates :nick_name
-    # case_sensitiveはRSpecテスト用
-    validates :user_name, uniqueness: { case_sensitive: true }
+    validates :user_name
   end
 
-  validates :user_name, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-zA-Z\d]{4,16}\z/i, message: "が正しくありません"}
+  validates :user_name, format: { with: /\A[a-zA-Z\d]{4,16}\z/i, message: "が正しくありません"}
 
 # --- Method ---
   

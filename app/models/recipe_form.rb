@@ -27,7 +27,7 @@ class RecipeForm
     validates :publish
   end
   # 値段は半角か全角の数字のみ可能
-  with_options format: { with: /\A[0-9０-９]+\z/ } do
+  with_options format: { with: /\A[0-9０-９]+(\.[0-9０-９]+)?\z/ } do
     validates :price, if: :blank?
   end
 
