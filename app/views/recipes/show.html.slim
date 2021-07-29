@@ -31,11 +31,13 @@
               //全角を半角に
               = @recipe.price.tr('０-９ａ-ｚＡ-Ｚ','0-9a-zA-Z')
             span 円
-    .caution-wrapper
-      .caution-heading
-        h2 注意書き
-      .caution
-        = @recipe.caution
+
+    - unless @recipe.caution.blank?
+      .caution-wrapper
+        .caution-heading
+          h2 注意書き
+        .caution
+          = @recipe.caution
 
     .ingredients-wrapper
       .ingredients-heading
@@ -84,6 +86,10 @@
           - @recipe.cookings.each do |cooking|
             li.cooking
               = cooking.content
+        ul.cooking-images
+          - @recipe.cookings.each do |cooking|
+            li.cooking-image
+              = image_tag cooking.image
 
     .buttons-wrapper
       - if user_signed_in? && current_user.id == @recipe.user_id

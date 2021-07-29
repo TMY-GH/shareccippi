@@ -5,10 +5,10 @@ class RecipeForm
 
   attr_accessor :recipe_name, :recipe_image, :minute, :serving, :publish, :price, :user_id, :caution,
                 :ingredient_ids, :amounts, :recipe_id,
-                :contents,
+                :contents, :cooking_images,
                 :difficulty
 
-# Validation
+# --- Validation -------------------------
   with_options presence: true do
     validates :recipe_name
     validates :minute
@@ -58,8 +58,15 @@ class RecipeForm
       i += 1
     end
     # 調理方法を複数のレコードで保存
+    i = 0
     contents.each do |content|
-      Cooking.create(content: content, recipe_id: recipe.id)
+      if !cooking_images[i].nil?
+        cooking_image = cooking_images[i] 
+        Cooking.create(content: content, image: cooking_image, recipe_id: recipe.id)
+      else
+        Cooking.create(content: content, recipe_id: recipe.id)
+      end
+      i += 1
     end
     # 調理難易度の保存
     Review.create(difficulty: difficulty, user_id: user_id, recipe_id: recipe.id)
@@ -89,12 +96,19 @@ class RecipeForm
     
     # 調理方法の元データの削除
     cookings = recipe.cookings
-    cookings.each do |cooking|
-      cooking.destroy
-    end
     # 調理方法を複数のレコードで保存
+    i = 0
     contents.each do |content|
-      Cooking.create(content: content, recipe_id: recipe.id)
+      if cooking_images && !cooking_images[i].nil?
+        cooking = Cooking.new(content: content, image: cooking_images[i], recipe_id: recipe.id)
+        cooking.save
+      else
+        cooking = Cooking.new(content: content, image: cookings[i].image, recipe_id: recipe.id)
+        # ここが解けません
+        binding.pry
+        cooking.save
+      end
+      i += 1
     end
     recipe.reviews.find_by(user_id: user_id).update(difficulty: difficulty)
   end
