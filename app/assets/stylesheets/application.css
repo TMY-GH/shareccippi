@@ -18,3 +18,7 @@
   /* font-family: 'Noto Sans JP', serif;
   font-family: 'Kiwi Maru', serif; */
 }
+
+.field_with_errors {
+  display: inline;
+}
