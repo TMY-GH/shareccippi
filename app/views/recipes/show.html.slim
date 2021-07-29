@@ -31,11 +31,13 @@
               //全角を半角に
               = @recipe.price.tr('０-９ａ-ｚＡ-Ｚ','0-9a-zA-Z')
             span 円
-    .caution-wrapper
-      .caution-heading
-        h2 注意書き
-      .caution
-        = @recipe.caution
+      
+    - if @recipe.caution.present?
+      .caution-wrapper
+        .caution-heading
+          h2 注意書き
+        .caution
+          = @recipe.caution
 
     .ingredients-wrapper
       .ingredients-heading
@@ -75,7 +77,6 @@
               - elsif @recipe.ingredients[i].name.include?("片")
                 span 片
               - i += 1
-
     .cookings-wrapper
       .cookings-heading
         h2 調理方法
