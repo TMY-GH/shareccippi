@@ -72,6 +72,8 @@
 ### Association
 - belongs_to :recipe
 - belongs_to :ingredient
+- has_many :group_shopping_lists
+- has_many :group_shoppings, through: :group_shopping_lists
 
 *****
 
@@ -171,6 +173,7 @@
 - belongs_to :recipe
 
 *****
+
 ## Reviewテーブル
 | Column                   | Type          | Option                         |
 |--------------------------|---------------|--------------------------------|
@@ -182,3 +185,28 @@
 ### Association
 - belongs_to :users
 - belongs_to :recipes
+
+*****
+
+## Group_shoppingテーブル
+| Column                   | Type          | Option                         |
+|--------------------------|---------------|--------------------------------|
+| memo                     | text          |                                |
+| group_id                 | references    | null: false, foreign_key: true |
+
+### Association
+- has_many :group_shopping_lists
+- has_many :recipe_ingredients, through: :group_shopping_lists
+
+*****
+
+## Group_shopping_listテーブル
+| Column                   | Type          | Option                         |
+|--------------------------|---------------|--------------------------------|
+| group_shopping_id        | references    | null: false, foreign_key: true |
+| recipe_ingredient_id     | references    | null: false, foreign_key: true |
+
+### Association
+- belongs_to :group_shopping
+- belongs_to :recipe_ingredient
+
