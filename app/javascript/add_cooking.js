@@ -70,22 +70,29 @@ const remove_cooking = () => {
   };
 };
 
-const preview_cooking = () => {
-  if (document.getElementById("cooking_preview")){
-    // 画像プレビュー
-    const image_preview = document.getElementById(`cooking_preview`);
-    document.getElementById(`cooking_image`).addEventListener('change', (e) => {
-      // 既にプレビューがある場合削除する
-      if (image_preview.children[0]){
-        image_preview.children[0].remove();
-      };
 
-      const file = e.target.files[0];
-      const image_url = window.URL.createObjectURL(file);
-      const image_tag = document.createElement('img');
-      image_tag.setAttribute('src', image_url);
-      image_preview.appendChild(image_tag);
-    });
+const preview_cooking = () => {
+  if (document.getElementById("cooking_input_0")){
+    // 画像プレビュー
+    const image_previews = document.getElementsByClassName(`cooking-previews`);
+    const image_inputs = document.getElementsByClassName(`cooking-inputs`);
+    for (let i = 0; i < image_inputs.length; i++) {
+      // image_inputs[i].addEventListener('change', (e) => {
+      let cooking_input = document.getElementById(`cooking_input_${i}`);
+      console.log(cooking_input);
+      cooking_input.addEventListener('change', (e) => {
+        // 既にプレビューがある場合削除する
+        if (image_previews[i].children[0]){
+          image_previews[i].children[0].remove();
+        };
+
+        const file = e.target.files[0];
+        const image_url = window.URL.createObjectURL(file);
+        const image_tag = document.createElement('img');
+        image_tag.setAttribute('src', image_url);
+        image_previews[i].appendChild(image_tag);
+      });
+    };
   };
 };
 

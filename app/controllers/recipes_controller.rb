@@ -38,7 +38,6 @@ class RecipesController < ApplicationController
     @ingredients = @recipe.recipe_ingredients
     @cookings = @recipe.cookings
     @cooking_images = @recipe.cooking_images
-    binding.pry
   end
 
   def update

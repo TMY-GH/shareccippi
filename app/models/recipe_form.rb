@@ -101,15 +101,13 @@ class RecipeForm
       Cooking.create(content: content, recipe_id: recipe.id)
     end
 
-    # 調理画像の元データの削除
-    pre_cooking_images = recipe.cooking_images
-    pre_cooking_images.each do |pre_cooking_image|
-      pre_cooking_image.destroy
-    end
     # 調理画像を複数のレコードで保存
-    cooking_images.each do |cooking_image|
-      CookingImage.create(image: cooking_image, recipe_id: recipe.id)
+    if !cooking_images.blank?
+      cooking_images.each do |cooking_image|
+        CookingImage.create(image: cooking_image, recipe_id: recipe.id)
+      end
     end
+    #調理難易度の保存
     recipe.reviews.find_by(user_id: user_id).update(difficulty: difficulty)
   end
 
