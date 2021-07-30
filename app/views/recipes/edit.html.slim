@@ -40,8 +40,11 @@
       .field.recipe-cooking
         label 調理方法 (10個まで)
         br
+        - i = 0
         - @cookings.each do |cooking|
-          = render partial: "cooking", locals: { f: f, content: cooking.content }
+          - cooking_image = @cooking_images[i].image unless @cooking_images[i].blank?
+          = render partial: "cooking", locals: { f: f, content: cooking.content, i: i, cooking_image: cooking_image }
+          - i += 1
         #cooking-space
         <i class="fas fa-plus-square" id="add_cooking_btn"></i>
 

@@ -1,0 +1,2 @@
+module CookingImagesHelper
+end

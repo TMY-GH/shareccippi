@@ -31,8 +31,8 @@
               //全角を半角に
               = @recipe.price.tr('０-９ａ-ｚＡ-Ｚ','0-9a-zA-Z')
             span 円
-      
-    - if @recipe.caution.present?
+
+    - unless @recipe.caution.blank?
       .caution-wrapper
         .caution-heading
           h2 注意書き
@@ -85,6 +85,14 @@
           - @recipe.cookings.each do |cooking|
             li.cooking
               = cooking.content
+        - unless @recipe.cooking_images.blank?
+          ul.cooking-images
+            - @recipe.cooking_images.each do |cooking_image|
+              li.cooking-image
+                = image_tag cooking_image.image
+                - if user_signed_in? && current_user.id == @recipe.user_id
+                  = link_to recipe_cooking_image_path(@recipe, cooking_image), method: :delete do
+                    <i class="fas fa-times-circle" style="cursor:pointer;"></i>
 
     .buttons-wrapper
       - if user_signed_in? && current_user.id == @recipe.user_id

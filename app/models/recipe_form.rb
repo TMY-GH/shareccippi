@@ -5,10 +5,10 @@ class RecipeForm
 
   attr_accessor :recipe_name, :recipe_image, :minute, :serving, :publish, :price, :user_id, :caution,
                 :ingredient_ids, :amounts, :recipe_id,
-                :contents,
+                :contents, :cooking_images,
                 :difficulty
 
-# Validation
+# --- Validation -------------------------
   with_options presence: true do
     validates :recipe_name
     validates :minute
@@ -61,6 +61,10 @@ class RecipeForm
     contents.each do |content|
       Cooking.create(content: content, recipe_id: recipe.id)
     end
+    # 調理画像を複数のレコードで保存
+    cooking_images.each do |cooking_image|
+      CookingImage.create(image: cooking_image, recipe_id: recipe.id)
+    end
     # 調理難易度の保存
     Review.create(difficulty: difficulty, user_id: user_id, recipe_id: recipe.id)
   end
@@ -96,6 +100,14 @@ class RecipeForm
     contents.each do |content|
       Cooking.create(content: content, recipe_id: recipe.id)
     end
+
+    # 調理画像を複数のレコードで保存
+    if !cooking_images.blank?
+      cooking_images.each do |cooking_image|
+        CookingImage.create(image: cooking_image, recipe_id: recipe.id)
+      end
+    end
+    #調理難易度の保存
     recipe.reviews.find_by(user_id: user_id).update(difficulty: difficulty)
   end
 

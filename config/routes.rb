@@ -19,6 +19,8 @@ Rails.application.routes.draw do
     resources :user_likes, only: [:create, :destroy]
     # レシピ難易度評価機能
     resources :reviews, only: [:create, :destroy]
+    # 調理画像の削除
+    resources :cooking_images, only: :destroy
   end
 
   resources :users, only: :show do

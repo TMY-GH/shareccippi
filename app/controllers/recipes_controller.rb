@@ -17,7 +17,6 @@ class RecipesController < ApplicationController
   def show
     @review = Review.new
     @reviews = @recipe.reviews.where.not(user_id: @recipe.user.id).includes(:user)
-
   end
 
   def new
@@ -38,6 +37,7 @@ class RecipesController < ApplicationController
     @recipe_form = RecipeForm.new(recipe_name: @recipe.name, recipe_image: @recipe.image, minute: @recipe.minute.id, serving: @recipe.serving.id, publish: @recipe.publish.id, price: @recipe.price, difficulty: @recipe.reviews.find_by(user_id: current_user.id).difficulty, caution: @recipe.caution)
     @ingredients = @recipe.recipe_ingredients
     @cookings = @recipe.cookings
+    @cooking_images = @recipe.cooking_images
   end
 
   def update
@@ -87,17 +87,18 @@ class RecipesController < ApplicationController
     @recipes_len = recipes.length
     @recipes = recipes[first_index..last_index]
   end
+
   private
 
   def recipe_params_create
     params.require(:recipe_form)
-          .permit(:recipe_name, :recipe_image, :minute, :serving, :publish, :price, :difficulty, :caution, contents: [], ingredient_ids: [], amounts: [])
+          .permit(:recipe_name, :recipe_image, :minute, :serving, :publish, :price, :difficulty, :caution, contents: [], cooking_images: [], ingredient_ids: [], amounts: [])
           .merge(user_id: current_user.id)
   end
 
   def recipe_params_update
     params.require(:recipe_form)
-          .permit(:recipe_name, :recipe_image, :minute, :serving, :publish, :price, :difficulty, :caution, contents: [], ingredient_ids: [], amounts: [])
+          .permit(:recipe_name, :recipe_image, :minute, :serving, :publish, :price, :difficulty, :caution, contents: [], cooking_images: [], ingredient_ids: [], amounts: [])
           .merge(user_id: current_user.id, recipe_id: params[:id])
   end
 
