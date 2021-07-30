@@ -23,8 +23,6 @@
 
 - has_many :reviews
 
-#### その他
-Active_storageで画像のの追加<br>
 *****
 
 ## Recipeテーブル
@@ -44,13 +42,12 @@ Active_storageで画像のの追加<br>
 - has_many :recipe-ingredients
 - has_many :ingredients, through: :recipe_ingredients
 - has_many :cookings
+- has_many :cooking_images
 - has_many :user_likes
 - has_many :users, through: :user_likes
 - has_many :group_likes
-- has_many :groups, through: :group_likes
-- has_many :recipe-tags
-- has_many :tags, through: :recipe-tags
 - has_many :reviews
+
 *****
 
 ## Ingredientテーブル
@@ -75,6 +72,7 @@ Active_storageで画像のの追加<br>
 ### Association
 - belongs_to :recipe
 - belongs_to :ingredient
+
 *****
 
 ## Cookingテーブル
@@ -87,8 +85,18 @@ Active_storageで画像のの追加<br>
 ### Association
 - belongs_to :recipe
 
-##### その他
-料理方法で画像を貼り付けられるようにする
+*****
+
+## Cooking_imageテーブル
+
+| Column                   | Type          | Option                         |
+|--------------------------|---------------|--------------------------------|
+| image                    | ActiveStorage |                                |
+| recipe_id                | references    | null: false, foreign_key: true |
+
+### Association
+- belongs_to :recipe
+
 *****
 
 ## Groupテーブル
@@ -161,27 +169,6 @@ Active_storageで画像のの追加<br>
 ### Association
 - belongs_to :group
 - belongs_to :recipe
-
-*****
-## Tagテーブル
-| Column                   | Type          | Option                         |
-|--------------------------|---------------|--------------------------------|
-| name                     | integer       | null: false                    |
-
-### Association
-- has_many :recipe_tags
-- has_many :recipes, through: :recipe_tags
-
-*****
-## recipe_tagテーブル
-| Column                   | Type          | Option                         |
-|--------------------------|---------------|--------------------------------|
-| tag_id                   | references    | null: false, foreign_key: true |
-| recipe_id                | references    | null: false, foreign_key: true |
-
-### Association
-- has_many :tags
-- has_many :recipes
 
 *****
 ## Reviewテーブル

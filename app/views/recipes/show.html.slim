@@ -86,10 +86,11 @@
           - @recipe.cookings.each do |cooking|
             li.cooking
               = cooking.content
-        ul.cooking-images
-          - @recipe.cookings.each do |cooking|
-            li.cooking-image
-              = image_tag cooking.image
+        - unless @recipe.cooking_images.blank?
+          ul.cooking-images
+            - @recipe.cooking_images.each do |cooking_image|
+              li.cooking-image
+                = image_tag cooking_image.image
 
     .buttons-wrapper
       - if user_signed_in? && current_user.id == @recipe.user_id

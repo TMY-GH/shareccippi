@@ -54,9 +54,6 @@
         // エラー時に入力した値を保持
         - unless @recipe.contents.blank?
           - @recipe.contents.each do |content|
-            label for="cooking_image" style="cursor:pointer;"
-              <i class="fas fa-camera" style="cursor:pointer;"></i>
-            = f.file_field :cooking_image, name: "recipe_form[cooking_images][]", id: "cooking_image", class: "cooking-preview", style: "display:none;"
             = render partial: "cooking", locals: { f: f, content: content}
             .cooking_preview
         - else

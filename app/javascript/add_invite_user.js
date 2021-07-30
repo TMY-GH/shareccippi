@@ -24,8 +24,8 @@ const add_invite_user = () => {
   };
 };
 const remove_invite_user = () => {
-  if (document.getElementsByClassName("remove_cooking_btn")[0]){
-    const remove_buttons = document.getElementsByClassName("remove_cooking_btn");
+  if (document.getElementsByClassName("remove_user_btn")[0]){
+    const remove_buttons = document.getElementsByClassName("remove_user_btn");
     for (let i = 0; i < remove_buttons.length; i++) {
       remove_buttons[i].addEventListener('click', () => {
         let parent = remove_buttons[i].parentNode;

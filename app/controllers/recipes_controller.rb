@@ -37,6 +37,8 @@ class RecipesController < ApplicationController
     @recipe_form = RecipeForm.new(recipe_name: @recipe.name, recipe_image: @recipe.image, minute: @recipe.minute.id, serving: @recipe.serving.id, publish: @recipe.publish.id, price: @recipe.price, difficulty: @recipe.reviews.find_by(user_id: current_user.id).difficulty, caution: @recipe.caution)
     @ingredients = @recipe.recipe_ingredients
     @cookings = @recipe.cookings
+    @cooking_images = @recipe.cooking_images
+    binding.pry
   end
 
   def update

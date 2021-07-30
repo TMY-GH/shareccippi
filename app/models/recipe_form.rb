@@ -58,15 +58,12 @@ class RecipeForm
       i += 1
     end
     # 調理方法を複数のレコードで保存
-    i = 0
     contents.each do |content|
-      if !cooking_images[i].nil?
-        cooking_image = cooking_images[i] 
-        Cooking.create(content: content, image: cooking_image, recipe_id: recipe.id)
-      else
-        Cooking.create(content: content, recipe_id: recipe.id)
-      end
-      i += 1
+      Cooking.create(content: content, recipe_id: recipe.id)
+    end
+    # 調理画像を複数のレコードで保存
+    cooking_images.each do |cooking_image|
+      CookingImage.create(image: cooking_image, recipe_id: recipe.id)
     end
     # 調理難易度の保存
     Review.create(difficulty: difficulty, user_id: user_id, recipe_id: recipe.id)
@@ -96,19 +93,22 @@ class RecipeForm
     
     # 調理方法の元データの削除
     cookings = recipe.cookings
+    cookings.each do |cooking|
+      cooking.destroy
+    end
     # 調理方法を複数のレコードで保存
-    i = 0
     contents.each do |content|
-      if cooking_images && !cooking_images[i].nil?
-        cooking = Cooking.new(content: content, image: cooking_images[i], recipe_id: recipe.id)
-        cooking.save
-      else
-        cooking = Cooking.new(content: content, image: cookings[i].image, recipe_id: recipe.id)
-        # ここが解けません
-        binding.pry
-        cooking.save
-      end
-      i += 1
+      Cooking.create(content: content, recipe_id: recipe.id)
+    end
+
+    # 調理画像の元データの削除
+    pre_cooking_images = recipe.cooking_images
+    pre_cooking_images.each do |pre_cooking_image|
+      pre_cooking_image.destroy
+    end
+    # 調理画像を複数のレコードで保存
+    cooking_images.each do |cooking_image|
+      CookingImage.create(image: cooking_image, recipe_id: recipe.id)
     end
     recipe.reviews.find_by(user_id: user_id).update(difficulty: difficulty)
   end

@@ -7,6 +7,7 @@ class Recipe < ApplicationRecord
   has_many :recipe_ingredients, dependent: :destroy
   has_many :ingredients, through: :recipe_ingredients
   has_many :cookings, dependent: :destroy
+  has_many :cooking_images, dependent: :destroy
 
   has_many :user_likes, dependent: :destroy
   has_many :users, through: :user_likes
@@ -15,6 +16,7 @@ class Recipe < ApplicationRecord
   
   has_many :group_likes, dependent: :destroy
   has_many :groups, through: :group_likes
+
 # ActiveHash
   extend ActiveHash::Associations::ActiveRecordExtensions
     belongs_to :minute
