@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_30_002055) do
+ActiveRecord::Schema.define(version: 2021_07_30_093705) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -73,6 +73,23 @@ ActiveRecord::Schema.define(version: 2021_07_30_002055) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["group_id"], name: "index_group_owners_on_group_id"
     t.index ["user_id"], name: "index_group_owners_on_user_id"
+  end
+
+  create_table "group_shopping_lists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "group_shopping_id", null: false
+    t.bigint "recipe_ingredient_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["group_shopping_id"], name: "index_group_shopping_lists_on_group_shopping_id"
+    t.index ["recipe_ingredient_id"], name: "index_group_shopping_lists_on_recipe_ingredient_id"
+  end
+
+  create_table "group_shoppings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "memo"
+    t.bigint "group_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["group_id"], name: "index_group_shoppings_on_group_id"
   end
 
   create_table "groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -161,6 +178,9 @@ ActiveRecord::Schema.define(version: 2021_07_30_002055) do
   add_foreign_key "group_likes", "recipes"
   add_foreign_key "group_owners", "groups"
   add_foreign_key "group_owners", "users"
+  add_foreign_key "group_shopping_lists", "group_shoppings"
+  add_foreign_key "group_shopping_lists", "recipe_ingredients"
+  add_foreign_key "group_shoppings", "groups"
   add_foreign_key "recipe_ingredients", "ingredients"
   add_foreign_key "recipe_ingredients", "recipes"
   add_foreign_key "recipes", "users"

@@ -1,0 +1,2 @@
+class GroupShoppingList < ApplicationRecord
+end
