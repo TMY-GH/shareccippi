@@ -4,8 +4,12 @@
       .group-show-heading
         = @group.name
       .calender-link-wrapper
-        a.calender-link href="#" 
-          <i class="far fa-calendar-alt"></i>カレンダーレシピへ
+        - if @group.group_shopping.nil?
+          = link_to new_group_group_shopping_path(@group) do
+            <i class="far fa-calendar-alt"></i>買い物リスト作成へ
+        - else
+          = link_to group_group_shopping_path(@group, @group.group_shopping) do
+            <i class="far fa-calendar-alt"></i>買い物リストへ
     .group-member-list-wrapper
       .group-member-heading
         .group-member-title

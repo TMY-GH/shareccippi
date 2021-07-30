@@ -8,6 +8,7 @@ class Group < ApplicationRecord
   has_many :invited_users, through: :group_invitations, source: :user
   has_many :group_likes
   has_many :recipes, through: :group_likes
+  has_one :group_shopping, dependent: :destroy
 
 # Validation
   validates :name, presence: true

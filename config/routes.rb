@@ -41,7 +41,7 @@ Rails.application.routes.draw do
       resources :group_invitations, only: [:create, :destroy]
     end
     resources :group_likes, only: [:new, :create, :destroy]
-    resources :group_shoppings, only: [:show]
+    resources :group_shoppings, only: [:show, :new, :create]
   end
 
 end
