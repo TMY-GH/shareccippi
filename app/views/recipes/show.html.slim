@@ -91,6 +91,9 @@
             - @recipe.cooking_images.each do |cooking_image|
               li.cooking-image
                 = image_tag cooking_image.image
+                - if user_signed_in? && current_user.id == @recipe.user_id
+                  = link_to recipe_cooking_image_path(@recipe, cooking_image), method: :delete do
+                    <i class="fas fa-times-circle" style="cursor:pointer;"></i>
 
     .buttons-wrapper
       - if user_signed_in? && current_user.id == @recipe.user_id

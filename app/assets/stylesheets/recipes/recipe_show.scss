@@ -180,6 +180,7 @@
     width: 47%;
     height: 300px;
     list-style: decimal inside;
+    position: relative;
   }
   img {
     width: 100%;
@@ -187,6 +188,13 @@
     object-fit: cover;
     border-radius: 20px; 
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  }
+  .fa-times-circle {
+    position: absolute;
+    font-size: 40px;
+    color: red;
+    top: 10px;
+    right: 0px;
   }
 }
 
