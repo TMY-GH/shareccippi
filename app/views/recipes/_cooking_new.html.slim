@@ -1,0 +1,7 @@
+.cooking
+  label for="cooking_input_#{i}" style="cursor:pointer;"
+    <i class="fas fa-camera" style="cursor:pointer;"></i>
+  = f.file_field :cooking_image, name: "recipe_form[cooking_images][]", id: "cooking_input_#{i}", class: "cooking-inputs", style: "display:none;"
+  
+  = f.text_area :content, name: "recipe_form[contents][]", rows: "4", placeholder: "写真は任意です", value: content
+  <i class="fas fa-times-circle remove_cooking_btn" style="cursor:pointer;"></i>

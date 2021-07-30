@@ -53,15 +53,16 @@
         br
         // エラー時に入力した値を保持
         - unless @recipe.contents.blank?
+          - i = 0
           - @recipe.contents.each do |content|
-            = render partial: "cooking", locals: { f: f, content: content}
-            .cooking_preview
+            = render partial: "cooking_new", locals: { f: f, content: content, i: i }
+            - i += 1
         - else
-          label for="cooking_image" style="cursor:pointer;"
+          label for="cooking_input_0" style="cursor:pointer;"
             <i class="fas fa-camera" style="cursor:pointer;"></i>
-          = f.file_field :cooking_image, name: "recipe_form[cooking_images][]", id: "cooking_image", style: "display:none;", value: "none"
+          = f.file_field :cooking_image, name: "recipe_form[cooking_images][]", id: "cooking_input_0", class: "cooking-inputs", style: "display:none;"
           = f.text_area :content, name: "recipe_form[contents][]", rows: "4", placeholder: "写真は任意です"
-          #cooking_preview
+          .cooking-previews
         #cooking-space
         <i class="fas fa-plus-square" id="add_cooking_btn"></i>
 

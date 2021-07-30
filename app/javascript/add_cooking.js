@@ -79,7 +79,6 @@ const preview_cooking = () => {
     for (let i = 0; i < image_inputs.length; i++) {
       // image_inputs[i].addEventListener('change', (e) => {
       let cooking_input = document.getElementById(`cooking_input_${i}`);
-      console.log(cooking_input);
       cooking_input.addEventListener('change', (e) => {
         // 既にプレビューがある場合削除する
         if (image_previews[i].children[0]){
