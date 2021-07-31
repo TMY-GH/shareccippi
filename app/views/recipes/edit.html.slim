@@ -59,7 +59,7 @@
         
       .field.recipe-difficulty
         label 調理難易度：
-        = f.select :difficulty, [['かんたん', 1], ['ふつう', 2], ['むずかしい', 3]]
+        = f.select :difficulty, [['かんたん', 1], ['ふつう', 2], ['むずかしい', 3]], { selected: 1 }
         
       .field.recipe-caution
         label その他(注意書きなど)：
