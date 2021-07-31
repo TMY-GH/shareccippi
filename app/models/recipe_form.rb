@@ -48,6 +48,8 @@ class RecipeForm
 
   def save
     recipe = Recipe.create(name: recipe_name, image: recipe_image, minute_id: minute, serving_id: serving, publish_id: publish, price: price, caution: caution, user_id: user_id)
+    # 調理難易度の保存
+    Review.create(difficulty: difficulty, user_id: user_id, recipe_id: recipe.id)
     i = 0
     # 材料と量を複数のレコードで保存
     ingredient_ids.each do |ingredient_id|
@@ -65,8 +67,6 @@ class RecipeForm
     cooking_images.each do |cooking_image|
       CookingImage.create(image: cooking_image, recipe_id: recipe.id)
     end
-    # 調理難易度の保存
-    Review.create(difficulty: difficulty, user_id: user_id, recipe_id: recipe.id)
   end
 
   def update
