@@ -22,6 +22,8 @@
             - sum_reviews = 0
             - recipe.reviews.each do |review|
               - sum_reviews += review.difficulty.to_i
-            - average_reviews = sum_reviews / recipe.reviews.length
-            - average_reviews.times do
-              <i class="fas fa-carrot"></i>
+            - if recipe.reviews.present?
+              - average_reviews = sum_reviews / recipe.reviews.length
+            - else
+              - average_reviews.times do
+                <i class="fas fa-carrot"></i>
