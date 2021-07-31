@@ -1,1 +1,21 @@
-h1 hello
+.group-shopping-new
+  .container
+    .group-shopping-new-page-title
+      h1 グループ買い物リストの作成
+    .group-shopping-new-heading
+      = "#{@group.name}で買い物リストの作成する"
+    - if @group.recipes.blank?
+      .group-shopping-new-no-recipe
+        h2 グループにレシピがありません
+    - else
+      = form_with model: @group_shopping, url: group_group_shoppings_path(@group), local: true do |f|
+        .recipes
+          - i = 0
+          - @recipes.each do |recipe|
+            = render partial: "checkbox_recipe", locals: { f: f, recipe: recipe, i: i }
+            - i += 1
+        .add-group-shopping-btn-wrapper
+          - if @group.group_shopping.nil?
+            input type="submit" class="add-group-shopping-btn" value="買い物リストの作成"
+          - else
+            input type="submit" class="add-group-shopping-btn" value="買い物リストの上書き"

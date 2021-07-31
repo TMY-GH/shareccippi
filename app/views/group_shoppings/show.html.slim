@@ -1,0 +1,49 @@
+.group-shopping-show
+  .container
+    .group-shopping-show-heading-wrapper
+      .group-shopping-show-heading
+        h1 #{@group.name}の買い物リスト
+      .new-group-shopping-link-wrapper
+        = link_to new_group_group_shopping_path(@group) do
+          <i class="far fa-calendar-alt"></i>新規買い物リスト作成へ
+    ul.group-shopping-show-lists
+      = form_with model: @group_shopping, url: group_group_shopping_path(@group), method: :delete, local: true do |f|
+        - i = 0
+        - @recipe_ingredients.each do |recipe_ingredient|
+          = f.label :ingredient_ids, { for: "group_shopping_ingredient_#{i}" }
+            .ingredients
+              .ingredient
+                = f.check_box :ingredient_ids, { name: "group_shopping[ingredient_ids][]", id: "group_shopping_ingredient_#{i}", class: "group-shopping-ingredient-checkbox" }, true, false
+                = recipe_ingredient.ingredient.name
+              .amount
+                = recipe_ingredient.amount
+                // スペースを入れる
+                <span> </span>
+                // 量に適応した単位をつける
+                - if recipe_ingredient.ingredient.name.include?("g")
+                  span g
+                - elsif recipe_ingredient.ingredient.name.include?("個")
+                  span 個
+                - elsif recipe_ingredient.ingredient.name.include?("本")
+                  span 本
+                - elsif recipe_ingredient.ingredient.name.include?("cc")
+                  span cc
+                - elsif recipe_ingredient.ingredient.name.include?("枚")
+                  span 枚
+                - elsif recipe_ingredient.ingredient.name.include?("大さじ")
+                  span 杯(大さじ)
+                - elsif recipe_ingredient.ingredient.name.include?("小さじ")
+                  span 杯(小さじ)
+                - elsif recipe_ingredient.ingredient.name.include?("キューブ")
+                  span キューブ
+                - elsif recipe_ingredient.ingredient.name.include?("パック")
+                  span パック
+                - elsif recipe_ingredient.ingredient.name.include?("片")
+                  span 片
+          - i += 1
+        - unless @group_shopping.memo.blank?
+          = f.text_area :memo, rows: "5", placeholder: "メモとしてお使いください", value: @group_shopping.memo
+        - else
+          = f.text_area :memo, rows: "5", placeholder: "メモとしてお使いください"
+        .submit-btn-wrapper
+          = f.submit "リストの更新", class: "submit-btn"
