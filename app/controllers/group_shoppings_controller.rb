@@ -48,13 +48,28 @@ class GroupShoppingsController < ApplicationController
           GroupShoppingList.create(group_shopping_id: group_shopping.id, recipe_ingredient_id: ingredient.id)
         end
       end
-      redirect_to group_path(@group)
+      redirect_to group_group_shopping_path(@group, group_shopping)
     else
       render :new
     end
   end
 
   def destroy
+    group_shopping = GroupShopping.find(params[:id])
+    group_shopping.memo = params[:group_shopping][:memo] if params[:group_shopping][:memo].present?
+    group_shopping.save
+    # 買い物リストからチェックされた材料の削除
+    if params[:group_shopping][:ingredient_ids].present?
+      ingredient_ids = params[:group_shopping][:ingredient_ids]
+      ingredient_ids.each do |ingredient_id|
+        recipe_ingredients = RecipeIngredient.where(ingredient_id: ingredient_id)
+        recipe_ingredients.each do |recipe_ingredient|
+          group_shopping_list = GroupShoppingList.find_by(group_shopping_id: group_shopping.id, recipe_ingredient_id: recipe_ingredient.id)
+          group_shopping_list.destroy if group_shopping_list.present?
+        end
+      end
+    end
+    redirect_to group_group_shopping_path(@group, group_shopping)
   end
 
   private

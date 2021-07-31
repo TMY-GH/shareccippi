@@ -13,7 +13,7 @@
           = f.label :ingredient_ids, { for: "group_shopping_ingredient_#{i}" }
             .ingredients
               .ingredient
-                = f.check_box :ingredient_ids, { name: "group_shopping[ingredient_ids][]", id: "group_shopping_ingredient_#{i}", class: "group-shopping-ingredient-checkbox" }, true, false
+                = f.check_box :ingredient_ids, { name: "group_shopping[ingredient_ids][]", id: "group_shopping_ingredient_#{i}", class: "group-shopping-ingredient-checkbox" }, recipe_ingredient.ingredient_id, false
                 = recipe_ingredient.ingredient.name
               .amount
                 = recipe_ingredient.amount
