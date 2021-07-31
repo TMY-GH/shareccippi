@@ -1,0 +1,2 @@
+module GroupShoppingsHelper
+end

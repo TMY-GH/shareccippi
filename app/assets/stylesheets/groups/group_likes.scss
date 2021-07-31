@@ -28,6 +28,9 @@
     height: 1000px;
     position: relative;
     overflow: scroll;
+    .recipe {
+      height: 500px;
+    }
   }
   .group-like-recipe-checkbox {
     position: absolute;

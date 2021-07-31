@@ -1,6 +1,6 @@
-.recipe 
-  = f.label :recipe_ids, { for: "group_like_recipe_#{i}", class: "recipe" }
-    = f.check_box :recipe_ids, { name: "group_like[recipe_ids][]", id: "group_like_recipe_#{i}", class: "group-like-recipe-checkbox" }, recipe.id, false
+.recipe
+  = f.label :recipe_ids, { for: "group_shopping_recipe_#{i}", class: "recipe" }
+    = f.check_box :recipe_ids, { name: "group_shopping[recipe_ids][]", id: "group_shopping_recipe_#{i}", class: "group-shopping-recipe-checkbox" }, recipe.id, false
     .recipe-image
       = image_tag recipe.image
     .recipe-name
