@@ -76,11 +76,9 @@ class RecipeForm
     else
       recipe.update(name: recipe_name, image: recipe_image, minute_id: minute, serving_id: serving, publish_id: publish, price: price, caution: caution, user_id: user_id)
     end
-    # 材料の元データの削除
+    # 材料
     ingredients = recipe.recipe_ingredients
-    ingredients.each do |ingredient|
-      ingredient.destroy
-    end
+    pre_ingredients_length = ingredients.length
     i = 0
     # 材料と量を複数のレコードで保存
     ingredient_ids.each do |ingredient_id|
@@ -89,6 +87,10 @@ class RecipeForm
       amount.tr('０-９ａ-ｚＡ-Ｚ','0-9a-zA-Z')
       RecipeIngredient.create(ingredient_id: ingredient_id, amount: amount, recipe_id: recipe.id)
       i += 1
+    end
+    # 材料の元データの削除
+    pre_ingredients_length.times do |i|
+      recipe.recipe_ingredients[i].destroy
     end
     
     # 調理方法の元データの削除
