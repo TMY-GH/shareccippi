@@ -1,7 +1,16 @@
 # ShaRecipe (シェアシピ)
 料理のレシピを閲覧、投稿、共有することができるアプリ
 
-<!-- ![test_image](https://github.com/TMY-GH/images/blob/main/top.png?raw=true, "test") -->
+URL: http://35.76.50.254/ <br>
+
+Basic認証<br>
+ユーザーID: noa<br>
+パスワード: 0801
+
+テスト用アカウント(ご自由にお使いください)<br>
+ユーザーID: test01<br>
+パスワード: aaa000
+
 
 # 概要
 共働きが当たり前になり、男性が外で働いて女性が家で家事をするという考え方は古いというのが社会に浸透してきています。ですが実際はいまだに共働きの家庭でも女性の方が家事の平均割合が高いというのが現状です。その中でも料理は家事の中でもっとも女性の比率が高いものとなっています。<br>
@@ -172,6 +181,16 @@
 - AWS(EC2, S3)
 - アプリケーションサーバー: Unicorn 5.4.1
 - Webサーバー: Nginx 1.20.0
+
+# ローカル環境での動作環境
+% git clone https://github.com/TMY-GH/shareccippi.git<br>
+% cd shareccippi<br>
+% bundle install<br>
+% rails db:create<br>
+% rails db:migrate<br>
+% rails s<br>
+http://localhost:3000 にアクセス
+
 
 # データベース設計
 
