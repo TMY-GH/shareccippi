@@ -64,8 +64,10 @@ class RecipeForm
       Cooking.create(content: content, recipe_id: recipe.id)
     end
     # 調理画像を複数のレコードで保存
-    cooking_images.each do |cooking_image|
-      CookingImage.create(image: cooking_image, recipe_id: recipe.id)
+    unless cooking_images.blank?
+      cooking_images.each do |cooking_image|
+        CookingImage.create(image: cooking_image, recipe_id: recipe.id)
+      end
     end
   end
 
