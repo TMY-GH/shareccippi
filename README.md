@@ -1,4 +1,4 @@
-![test_image](https://github.com/TMY-GH/images/blob/main/top.png, "test")
+![test_image](https://github.com/TMY-GH/images/blob/main/top.png?raw=true, "test")
 # テーブル設計
 
 ## Userテーブル
