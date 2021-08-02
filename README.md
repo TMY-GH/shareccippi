@@ -160,8 +160,20 @@
 <img src="https://github.com/TMY-GH/images/blob/main/group_shopping.gif?raw=true" width="100%">
 
 
+# 開発環境
+- VSCode
+- Ruby 2.6.5
+- Rails 6.0.0
+- gem 3.2.24
+- MySQL2 0.5.3
+- JavaScript
 
-# テーブル設計
+# 本番環境
+- AWS(EC2, S3)
+- アプリケーションサーバー: Unicorn 5.4.1
+- Webサーバー: Nginx 1.20.0
+
+# データベース設計
 
 ## Userテーブル
 
