@@ -26,7 +26,9 @@
 | レシピ詳細機能(非ログイン可) | レシピの詳細な情報の閲覧が可能                  |
 | レシピ投稿機能             | 料理のレシピの作成が可能                       |
 | レシピ編集機能             | 自身が投稿したレシピのみ編集が可能               |
-| レシピ削除機能             | 地震が投稿したレシピの削除が可能                 |
+| レシピ削除機能             | 自身が投稿したレシピの削除が可能                 |
+| レシピレビュー機能          | 他の人が投稿したレシピにコメントと調理難易度のレビューが可能|
+| レシピ調理難易度機能         | 投稿時やレビューに投稿された調理難易度の平均が表示されます |
 
 ## お気に入り機能
 | 機能                       | 機能詳細                                   |
@@ -54,8 +56,9 @@
 | グループ買い物リスト機能     | グループのレシピ内から選択されたレシピの材料リストの作成、上書きが可能 |
 
 # 使用方法
-## アカウント作成
-ヘッダーのアカウント作成ボタンからアカウント作成画面へ遷移します。
+| アカウント作成 |
+| -------------|
+| ヘッダーのアカウント作成ボタンからアカウント作成画面へ遷移します。 |
 
 <img src="https://github.com/TMY-GH/images/blob/main/create_account.gif?raw=true" width="100%">
 
@@ -63,35 +66,65 @@
 既にアカウントをお持ちの場合、ヘッダーのログインボタンからログイン画面へ遷移します。
 ログインにはアカウント作成時のユーザーIDとパスワードが必要です。
 
+<img src="https://github.com/TMY-GH/images/blob/main/sign_in.gif?raw=true" width="100%">
+
 ## ログアウト
 ログイン状態の場合、ヘッダーのログアウトボタンでログアウトします。
 
+<img src="https://github.com/TMY-GH/images/blob/main/sign_out.gif?raw=true" width="100%">
+
 
 ## レシピの一覧・検索
+公開されているレシピが一覧できます。また材料によるレシピの検索をすることができます。
+
+<img src="https://github.com/TMY-GH/images/blob/main/recipe_index.gif?raw=true" width="100%">
 
 ## レシピの詳細
+レシピの調理時間、人数、費用（任意入力）、材料や調理方法を確認できます。
+
+<img src="https://github.com/TMY-GH/images/blob/main/recipe_show.gif?raw=true" width="100%">
 
 ## レシピの投稿
+レシピ詳細
+
+<img src="https://github.com/TMY-GH/images/blob/main/recipe_new.gif?raw=true" width="100%">
 
 ## レシピの編集
+<img src="https://github.com/TMY-GH/images/blob/main/recipe_edit.gif?raw=true" width="100%">
 
 ## レシピの削除
+<img src="https://github.com/TMY-GH/images/blob/main/recipe_destroy.gif?raw=true" width="100%">
+
+## レシピのコメントレビュー機能
+<img src="https://github.com/TMY-GH/images/blob/main/recipe_review.gif?raw=true" width="100%">
 
 ## レシピのお気に入り
+<img src="https://github.com/TMY-GH/images/blob/main/recipe_favorite.gif?raw=true" width="100%">
 
 ## マイページ
+<img src="https://github.com/TMY-GH/images/blob/main/my_page.gif?raw=true" width="100%">
 
 ## グループの作成・招待
+<img src="https://github.com/TMY-GH/images/blob/main/group_new.gif?raw=true" width="100%">
 
 ## グループの編集
+<img src="https://github.com/TMY-GH/images/blob/main/group_edit.gif?raw=true" width="100%">
+
 
 ## グループの脱退
+<img src="https://github.com/TMY-GH/images/blob/main/group_exit.gif?raw=true" width="100%">
+
 
 ## グループの削除
+<img src="https://github.com/TMY-GH/images/blob/main/group_destroy.gif?raw=true" width="100%">
+
 
 ## グループでレシピをシェアする
+<img src="https://github.com/TMY-GH/images/blob/main/group_recipe_new.gif?raw=true" width="100%">
 
 ## グループで買い物リストを作る
+<img src="https://github.com/TMY-GH/images/blob/main/group_shopping.gif?raw=true" width="100%">
+
 
 
 # テーブル設計
