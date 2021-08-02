@@ -56,9 +56,9 @@
 | グループ買い物リスト機能     | グループのレシピ内から選択されたレシピの材料リストの作成、上書きが可能 |
 
 # 使用方法
-| アカウント作成 |
-| -------------|
-| ヘッダーのアカウント作成ボタンからアカウント作成画面へ遷移します。 |
+
+## アカウント作成
+ヘッダーのアカウント作成ボタンからアカウント作成画面へ遷移します。
 
 <img src="https://github.com/TMY-GH/images/blob/main/create_account.gif?raw=true" width="100%">
 
@@ -80,49 +80,83 @@
 <img src="https://github.com/TMY-GH/images/blob/main/recipe_index.gif?raw=true" width="100%">
 
 ## レシピの詳細
-レシピの調理時間、人数、費用（任意入力）、材料や調理方法を確認できます。
+レシピ一覧画面からレシピを一つクリックすると詳細画面に遷移します。<br>
+レシピの調理時間、人数、費用（任意入力）、材料、調理方法を確認できます。
 
 <img src="https://github.com/TMY-GH/images/blob/main/recipe_show.gif?raw=true" width="100%">
 
 ## レシピの投稿
-レシピ詳細
+ヘッダーのレシピ投稿ボタンを押すとレシピ投稿画面に遷移します。<br>
+料理名、料理の写真（任意）、調理時間、人数、材料、調理方法（画像は任意）、公開設定、費用、調理難易度の入力をしレシピを作るボタンを押すとレシピが投稿されます。
 
 <img src="https://github.com/TMY-GH/images/blob/main/recipe_new.gif?raw=true" width="100%">
 
 ## レシピの編集
+レシピ詳細画面からレシピ投稿者の場合、編集ボタンを押すことでレシピ編集ページへ遷移します。<br>
+レシピの内容を変更し、レシピ作成のボタンを押してください。
+
 <img src="https://github.com/TMY-GH/images/blob/main/recipe_edit.gif?raw=true" width="100%">
 
 ## レシピの削除
+レシピ詳細画面からレシピ投稿者の場合、削除ボタンを押すことで削除確認画面が表示されます。<br>
+削除する場合は「はい」を押してください。
+
 <img src="https://github.com/TMY-GH/images/blob/main/recipe_destroy.gif?raw=true" width="100%">
 
 ## レシピのコメントレビュー機能
+レシピ詳細画面の下部に本人以外はレシピのレビューを行うことができます。<br>
+レシピの感想と調理難易度を選択し、送信してください。レビューを取り消したい場合はコメントの削除ボタンを押してください。
+
 <img src="https://github.com/TMY-GH/images/blob/main/recipe_review.gif?raw=true" width="100%">
 
 ## レシピのお気に入り
+レシピの詳細画面の右上の星マークを押すことでお気に入りのレシピに追加することができます。<br>
+もしお気に入りから外す場合は、黄色い星マークをもう１度押してください。
+
 <img src="https://github.com/TMY-GH/images/blob/main/recipe_favorite.gif?raw=true" width="100%">
 
 ## マイページ
+ヘッダーの自身の名前を押すことでマイページに遷移します。<br>
+マイページでは自身の投稿したレシピが閲覧できます。また公開設定のレシピ、非公開のレシピのみ表示することが可能です。右上の「お気に入りのレシピ」ボタンを押すことでお気に入りのレシピを表示します。
+
 <img src="https://github.com/TMY-GH/images/blob/main/my_page.gif?raw=true" width="100%">
 
 ## グループの作成・招待
+ヘッダーのグループボタンからグループ一覧ページに遷移します。<br>
+そこからグループ作成ボタンを押すことでグループ作成画面へ遷移します。<br>
+グループ名と招待したいユーザーのIDを入力し、グループを作成してください。招待されたユーザーはグループ一覧画面に招待の通知が届くので、参加する場合は「参加する」を押してください。
+
 <img src="https://github.com/TMY-GH/images/blob/main/group_new.gif?raw=true" width="100%">
 
 ## グループの編集
+グループのメンバーであれば誰でも新しくユーザーの招待、グループ名の変更を行うことができます。
+
 <img src="https://github.com/TMY-GH/images/blob/main/group_edit.gif?raw=true" width="100%">
 
 
 ## グループの脱退
+グループ一覧画面でグループ名を押すことで、グループ詳細画面に遷移します。<br>
+グループ詳細画面の下部の脱退ボタンを押すことでグループから脱退します。
+
 <img src="https://github.com/TMY-GH/images/blob/main/group_exit.gif?raw=true" width="100%">
 
 
 ## グループの削除
+ユーザーがグループ作成者の場合、グループ一覧画面からグループの削除を行えます。
+
 <img src="https://github.com/TMY-GH/images/blob/main/group_destroy.gif?raw=true" width="100%">
 
 
 ## グループでレシピをシェアする
+グループ一覧画面、またはグループ詳細画面の「レシピを追加する」ボタンからグループで共有したいレシピを選ぶことができます。<br>
+追加するレシピはご自身のお気に入りのレシピから選ぶことができます。
+
 <img src="https://github.com/TMY-GH/images/blob/main/group_recipe_new.gif?raw=true" width="100%">
 
 ## グループで買い物リストを作る
+グループに共有されているレシピがある状態でグループ詳細画面の右上の買い物リストボタンを押すことで買い物リスト画面へ遷移します。<br>
+買い物リストに材料を追加したいレシピをグループに共有されているレシピから選択し、リストの作成を押すことでそのレシピの材料のチェックリストが作成されます。
+
 <img src="https://github.com/TMY-GH/images/blob/main/group_shopping.gif?raw=true" width="100%">
 
 
