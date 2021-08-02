@@ -51,10 +51,12 @@
 | グループレシピ追加機能       | グループに自身のお気に入りのレシピから任意のレシピを追加することが可能 |
 | グループレシピ削除機能       | グループメンバーはグループからレシピを削除することが可能 |
 | グループ買い物リスト機能     | グループのレシピ内から選択されたレシピの材料リストの作成、上書きが可能 |
+
 # 使用方法
 ## アカウント作成
 ヘッダーのアカウント作成ボタンからアカウント作成画面へ遷移します
-![test_image](https://github.com/TMY-GH/images/blob/main/create_account.gif?raw=true, "test")
+<img src="https://github.com/TMY-GH/images/blob/main/create_account.gif?raw=true" width="100%">
+
 # テーブル設計
 
 ## Userテーブル
