@@ -217,7 +217,7 @@ http://localhost:3000 にアクセス
 
 - has_many :reviews
 
-*****
+********************************************************************************
 
 ## Recipeテーブル
 
@@ -242,7 +242,7 @@ http://localhost:3000 にアクセス
 - has_many :group_likes
 - has_many :reviews
 
-*****
+********************************************************************************
 
 ## Ingredientテーブル
 
@@ -254,6 +254,8 @@ http://localhost:3000 にアクセス
 ### Association
 - has_many :recipe_ingredients
 - has_many :recipes, through: :recipe_ingredients
+
+********************************************************************************
 
 ## recipe_ingredientテーブル
 
@@ -269,7 +271,7 @@ http://localhost:3000 にアクセス
 - has_many :group_shopping_lists
 - has_many :group_shoppings, through: :group_shopping_lists
 
-*****
+********************************************************************************
 
 ## Cookingテーブル
 
@@ -281,7 +283,7 @@ http://localhost:3000 にアクセス
 ### Association
 - belongs_to :recipe
 
-*****
+********************************************************************************
 
 ## Cooking_imageテーブル
 
@@ -293,7 +295,7 @@ http://localhost:3000 にアクセス
 ### Association
 - belongs_to :recipe
 
-*****
+********************************************************************************
 
 ## Groupテーブル
 
@@ -310,7 +312,8 @@ http://localhost:3000 にアクセス
 - has_many :invited_users, through: :group_invitations, source: :user
 - has_one :group_owner
 - has_one :owner, through: :group_owner, source: :user
-*****
+
+********************************************************************************
 
 ## user_groupテーブル
 | Column                   | Type          | Option                         |
@@ -321,7 +324,8 @@ http://localhost:3000 にアクセス
 ### Association
 - belongs_to :user
 - belongs_to :group
-*****
+
+********************************************************************************
 
 ## group_ownerテーブル
 | Column                   | Type          | Option                         |
@@ -332,7 +336,8 @@ http://localhost:3000 にアクセス
 ### Association
 - belongs_to :user
 - belongs_to :group
-*****
+
+********************************************************************************
 
 ## group_invitationテーブル
 | Column                   | Type          | Option                         |
@@ -343,7 +348,8 @@ http://localhost:3000 にアクセス
 ### Association
 - belongs_to :user
 - belongs_to :group
-*****
+
+********************************************************************************
 
 ## user_likeテーブル
 | Column                   | Type          | Option                         |
@@ -354,7 +360,8 @@ http://localhost:3000 にアクセス
 ### Association
 - belongs_to :user
 - belongs_to :recipe
-*****
+
+********************************************************************************
 
 ## group_likeテーブル
 | Column                   | Type          | Option                         |
@@ -380,7 +387,7 @@ http://localhost:3000 にアクセス
 - belongs_to :users
 - belongs_to :recipes
 
-*****
+********************************************************************************
 
 ## Group_shoppingテーブル
 | Column                   | Type          | Option                         |
@@ -392,7 +399,7 @@ http://localhost:3000 にアクセス
 - has_many :group_shopping_lists
 - has_many :recipe_ingredients, through: :group_shopping_lists
 
-*****
+********************************************************************************
 
 ## Group_shopping_listテーブル
 | Column                   | Type          | Option                         |
